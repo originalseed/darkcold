@@ -1,0 +1,13 @@
+
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=DarkCold
+Comment= Dark theme
+Encoding=UTF-8
+
+Name[en_UK]=DarkCold
+
+[X-GNOME-Metatheme]
+GtkTheme=Dark theme
+MetacityTheme=Dark theme
+

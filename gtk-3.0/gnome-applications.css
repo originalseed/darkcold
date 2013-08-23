@@ -1,0 +1,106 @@
+@define-color nautilus_cluebar_color #729fcf;
+
+/****************
+ * Applications *
+ ****************/
+ApDocView, /* Abiword */
+EogScrollView, /* Eog */
+CheeseThumbView /* Cheese */
+{
+    background-color: @chrome_bg_color;
+    -EogScrollView-shadow-type: none;
+}
+
+/* gnome-terminal */
+TerminalScreen {
+    background-color: @theme_base_color;
+    color: @theme_fg_color;
+    -TerminalScreen-background-darkness: 0.95;
+}
+
+/* nautilus */
+.nautilus-canvas-item {
+    border-radius: 5px;
+    font: bold;
+}
+.nautilus-desktop,
+.nautilus-desktop.nautilus-canvas-item {
+    color: #060A0F;
+    font: bold;
+}
+
+.nautilus-desktop.nautilus-canvas-item:active {
+    color: @theme_text_color;
+}
+
+.nautilus-desktop.nautilus-canvas-item:selected {
+    color: @theme_selected_fg_color;
+}
+
+
+.nautilus-desktop.nautilus-canvas-item:active,
+.nautilus-desktop.nautilus-canvas-item:prelight,
+.nautilus-desktop.nautilus-canvas-item:selected {
+    text-shadow: none;
+}
+
+NautilusTrashBar.info,
+NautilusXContentBar.info,
+NautilusSearchBar.info,
+NautilusQueryEditor.info {
+    background-color: @nautilus_cluebar_color;
+    border: solid;
+    border-image: url("darkelements/border-passive.png") 2 2 2 2 / 2px 2px 2px 2px stretch;
+    border-width: 2px;
+}
+
+NautilusSearchBar .entry {
+    border-image: none;
+    border-color: @nautilus_cluebar_color;
+
+    -GtkEntry-inner-border: 2px;
+}
+
+NautilusSearchBar .entry.image {
+    color: @nautilus_cluebar_color;
+}
+
+.nautilus-cluebar-label {
+    font: bold;
+    color: @theme_base_color;
+    border: solid;
+    border-image: url("darkelements/border-passive.png") 2 2 2 2 / 2px 2px 2px 2px stretch;
+    border-width: 2px;
+}
+
+#nautilus-search-button *:active,
+#nautilus-search-button *:active:prelight {
+    color: darker (@nautilus_cluebar_color);
+}
+
+NautilusFloatingBar {
+
+}
+
+NautilusFloatingBar .button {
+    background-image: url("darkelements/button-normal.png");
+    border: solid;
+    border-image: url("darkelements/button-normal-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    color: @theme_text_color;
+
+    -GtkButton-image-spacing: 0;
+    -GtkButton-inner-border: 0;
+}
+
+NautilusWindow .sidebar .frame {
+    border: solid;
+    border-image: url("darkelements/border-passive.png") 2 2 2 2 / 2px 2px 2px 2px stretch;
+    border-width: 2px;
+            
+}
+
+NautilusWindow > GtkTable > .pane-separator {
+    border: solid;
+    border-image: url("darkelements/border-passive.png") 2 2 2 2 / 2px 2px 2px 2px stretch;
+    border-width: 2px;
+}

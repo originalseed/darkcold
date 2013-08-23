@@ -1,0 +1,14 @@
+GtkIconView.view.cell:selected,
+GtkIconView.view.cell:selected:focused {
+    background-color: alpha(@theme_base_color, 0.0);
+
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: #d3d7cf;
+
+}
+
+.entry:insensitive {
+    background-image: none;
+}
