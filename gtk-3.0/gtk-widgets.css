@@ -808,9 +808,15 @@ GtkTreeMenu.menu {
 	background-size: 100% 100%;
 	margin:10px;
 }
-
 GtkTreeMenu .menuitem, 
 GtkTreeMenu .menuitem * {
+    color: @theme_text_color;
+	border: solid;	
+	
+}
+
+GtkTreeMenu .menuitem:prelight, 
+GtkTreeMenu .menuitem:prelight * {
     color: @theme_text_color;
 	border: solid;	
 	background-image: url("darkelements/menubar-item-active.png");
@@ -926,7 +932,16 @@ GtkMenu {
 	background-color: transparent;
 	padding:0;
 }
-
+.menuitem:prelight { /* 666 */
+    border: solid;
+    background-image: url("darkelements/menubar-item-active.png");
+    border-image: url("darkelements/menubar-item-border-active.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width: 2px;
+    background-size: 100% 100%;
+    padding: 0;
+    border-color: transparent;
+    background-color: transparent;
+}
 
 .menuitem .accelerator:insensitive {
     color: mix (@menu_fg_color, @menu_bg_color, 0.7);
