@@ -19,29 +19,42 @@ TerminalScreen {
 }
 
 /* nautilus */
-.nautilus-canvas-item {
+.nautilus-canvas-item,
+.nemo-canvas-item {
     border-radius: 5px;
-    font: bold;
-}
-.nautilus-desktop,
-.nautilus-desktop.nautilus-canvas-item {
-    color: #060A0F;
-    font: bold;
+    font: bold 50;
+	font-weight:bold;
 }
 
-.nautilus-desktop.nautilus-canvas-item:active {
-    color: @theme_text_color;
+.nautilus-desktop.nautilus-canvas-item,
+.nemo-desktop.nemo-canvas-item {
+    color: #ffffff;
+    text-shadow: 1px 1px black;
+    font: bold 50;
+	font-weight:bold;	
 }
 
-.nautilus-desktop.nautilus-canvas-item:selected {
+.nautilus-desktop.nautilus-canvas-item:active,
+.nemo-desktop.nemo-canvas-item:active {
+    color: shade(@theme_fg_color,0.8);
+}
+
+.nautilus-desktop.nautilus-canvas-item:selected,
+.nemo-desktop.nemo-canvas-item:selected {
     color: @theme_selected_fg_color;
+    text-shadow: 1px 1px alpha(black, 0.3);
 }
-
 
 .nautilus-desktop.nautilus-canvas-item:active,
 .nautilus-desktop.nautilus-canvas-item:prelight,
-.nautilus-desktop.nautilus-canvas-item:selected {
+.nemo-desktop.nemo-canvas-item:active,
+.nemo-desktop.nemo-canvas-item:prelight {
     text-shadow: none;
+}
+
+.nautilus-desktop.nautilus-canvas-item:selected:backdrop,
+.nemo-desktop.nemo-canvas-item:selected:backdrop {
+    color: shade(@theme_selected_fg_color, 0.7);
 }
 
 NautilusTrashBar.info,
@@ -67,7 +80,7 @@ NautilusSearchBar .entry.image {
 
 .nautilus-cluebar-label {
     font: bold;
-    color: @theme_base_color;
+    color: @theme_text_color;
     border: solid;
     border-image: url("darkelements/border-passive.png") 2 2 2 2 / 2px 2px 2px 2px stretch;
     border-width: 2px;

@@ -9,7 +9,7 @@
 * {
     engine: none;
     padding: 1px;
-
+	color: @theme_text_color;
     /* Style properties */
     -GtkToolButton-icon-spacing: 1px;
 
@@ -1560,7 +1560,7 @@ GtkPathBar .button:active:hover {
  ***********/
 .sidebar,
 .sidebar .view {
-    background-color: #060A0F;
+    background-color: @theme_base_color;
 }
 
 .sidebar .scrollbar.trough {
@@ -1658,6 +1658,7 @@ GtkViewport,
 GtkIconView {
     background-color: transparent;
     padding: 3px;
+    color: @theme_text_color;
 }
 
 GtkIconView.view.cell:selected,
@@ -1666,18 +1667,10 @@ GtkIconView.view.cell:selected:focused {
     background-color: alpha(@theme_base_color, 0.2);
 }
 
-.view-old {
-    background-color: @theme_base_color;
-    color: @theme_fg_color;
-    border-radius: 0;
-	border: solid;
-    border-width: 2px 2px 2px 2px;
-    border-color:transparent;
-}
 /**
  * Selected Icon 
  */
-.view {
+.view{
     background-color: @theme_base_color;
     color: @theme_text_color;
 }
@@ -1703,7 +1696,7 @@ GtkTreeView {
 
 GtkTreeView row:nth-child(even),
 GtkTreeView row:nth-child(even):hover {
-    background-color: #060A0F;
+    background-color: @theme_base_color;
 }
 
 GtkTreeView row:nth-child(odd),
