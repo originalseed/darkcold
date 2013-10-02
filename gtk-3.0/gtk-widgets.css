@@ -57,12 +57,14 @@ GtkWindow {
    background-image: url("darkelements/bg.jpg");
    background-repeat: repeat-x;
    padding:0;
+   background-color: @theme_bg_color;
 }
 GtkImage {
 	background-color: @transparent;
 }
 * {
-    background-color: @theme_bg_color;
+	
+    /*background-color: @theme_bg_color;*/
 
 }
 
