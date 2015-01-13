@@ -801,7 +801,10 @@ GtkTreeMenu.menu {
 GtkTreeMenu .menuitem, 
 GtkTreeMenu .menuitem * {
     color: @theme_text_color;
-	border: solid;	
+	border: solid alpha(black, 0);	
+border-width: 2px;
+    padding: 0;
+background-color: transparent;
 	
 }
 
@@ -1015,7 +1018,6 @@ border:solid;
 /****************
  * Radiobuttons *
  ****************/
-
 .radio,
 .check {
     background-color: transparent;
@@ -1025,6 +1027,7 @@ border:solid;
 	padding: 0;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
+
 }
 GtkCheckButton:hover,
 GtkCheckButton:active:hover,
@@ -1033,6 +1036,7 @@ GtkCheckButton:selected:focus {
     background-color: transparent;
 }
 /* unchecked */
+.button.check,
 .menubar .menuitem .menuitem.check,
 .menuitem.check{
     background-image: url("darkelements/check-radio/check1.png");
@@ -1040,6 +1044,7 @@ GtkCheckButton:selected:focus {
     border-width: 0;
 }
 /* unchecked hover */
+.button.check:prelight,
 .menubar .menuitem .menuitem.check:prelight,
 .menuitem.check:prelight {
     background-image: url("darkelements/check-radio/check3.png");
@@ -1047,6 +1052,7 @@ GtkCheckButton:selected:focus {
     border-width: 0;
 }
 /* checked */
+.button.check:active,
 .menubar .menuitem .menuitem.check:active,
 .menuitem.check:active {
     background-image: url("darkelements/check-radio/check2.png");
@@ -1054,19 +1060,21 @@ GtkCheckButton:selected:focus {
     border-width: 0;
 }
 /* checked hover */
+.button.check:active:prelight,
 .menubar .menuitem .menuitem.check:active:prelight,
 .menuitem.check:active:prelight {
     background-image: url("darkelements/check-radio/check4.png");
 	
     border-width: 0;
 }
-
+.button.check:insensitive,
 .menubar .menuitem .menuitem.check:insensitive,
 .menuitem.check:insensitive{
     background-image: url("darkelements/check-radio/check5.png");
  border-width: 0;
 	
 }
+.button.check:active:insensitive,
 .menubar .menuitem .menuitem.check:active:insensitive,
 .menuitem.check:active:insensitive{
     background-image: url("darkelements/check-radio/check6.png");
@@ -1955,4 +1963,226 @@ GsmFailWhaleDialog {
 GsmFailWhaleDialog * {
     background-color: @os_chrome_bg_color;
     background-image: none;
+}
+
+/********* gtk 3.14 ******************/
+.header-bar,
+.header-bar .toolbar,
+.titlebar,
+.action-bar,
+.primary-toolbar {
+	background-color: #000000;
+	background-size: 100% 100%;
+	border: solid;
+    border-image: url("darkelements/tab-top.png") 20 2 0 2 / 20px 2px 0 2px stretch stretch;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.header-bar:backdrop{
+
+}
+.header-bar .title,
+.header-bar .subtitle{
+ color:#ffffff;
+}
+.header-bar .subtitle{
+	font-size: 90%;
+}
+
+
+/***************
+ * Popovers   *
+ ***************/
+.popover {
+  background-clip: initial;
+  margin: 10px;
+  padding: 2px;
+  border: 1px solid darker(@theme_base_color);
+  border-radius: 3px;
+  background-color: @theme_bg_color;
+  box-shadow: 0 1px 5px #000000;
+  text-shadow: none;
+  icon-shadow: none; 
+}
+.popover > .list, 
+.popover > .view, 
+.popover > .toolbar .popover.osd > .toolbar, 
+.popover > .inline-toolbar .popover.osd > .toolbar, 
+.popover > .search-bar .popover.osd > .toolbar, 
+.popover > .location-bar .popover.osd > .toolbar,
+.popover > .toolbar .popover.osd > .inline-toolbar, 
+.popover > .inline-toolbar .popover.osd > .inline-toolbar, 
+.popover > .search-bar .popover.osd > .inline-toolbar, 
+.popover > .location-bar .popover.osd > .inline-toolbar,
+.popover > .toolbar .popover.osd > .search-bar, 
+.popover > .inline-toolbar .popover.osd > .search-bar, 
+.popover > .search-bar .popover.osd > .search-bar,
+.popover > .location-bar .popover.osd > .search-bar,
+.popover > .toolbar .popover.osd > .location-bar,
+.popover > .inline-toolbar .popover.osd > .location-bar, 
+.popover > .search-bar .popover.osd > .location-bar, 
+.popover > .location-bar .popover.osd > .location-bar {
+    border-style: none;
+    background-color: transparent; 
+}
+.popover.osd {
+    background-image: none;
+    background-color: alpha(shade(#3D3E40, 0.85), 0.85);
+    border: 1px solid black;
+    box-shadow: none;
+    color: @theme_selected_fg_color; 
+}
+.popover.osd .toolbar {
+      background-image: none;
+      background-color: transparent;
+      border: none;
+      box-shadow: none; 
+}
+.popover.osd .button {
+      text-shadow: 0 -1px @osd_text_shadow;
+      icon-shadow: 0 -1px @osd_text_shadow; 
+}
+.popover.osd .button:active,
+      .popover.osd .button:checked {
+        box-shadow: none;
+}
+.popover.osd .button:insensitive {
+        color: alpha(@theme_selected_fg_color, 0.4); 
+}
+
+.popover .list {
+  background-color: @theme_bg_color; }
+
+.entry.cursor-handle,
+.cursor-handle {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  border-style: none; 
+}
+.entry.cursor-handle.top,
+.cursor-handle.top {
+    -gtk-icon-source: -gtk-icontheme("selection-start-symbolic"); 
+}
+.entry.cursor-handle.bottom,
+.cursor-handle.bottom {
+    -gtk-icon-source: -gtk-icontheme("selection-end-symbolic"); 
+}
+
+
+/*********
+ * Lists *
+ *********/
+.list, .list-row {
+ 
+  border-color: @window_frame; 
+}
+
+.list-row,
+.grid-child {
+  padding: 2px; }
+
+.list-row.button, .list-row.button:hover, .list-row.button:active, .list-row.button:active:hover,
+.list-row.button:selected:active, .list-row.button:selected, .list-row.button:selected:hover, .list-row.button:focus, .list-row.button:focus:active:hover {
+  border-style: none;
+  border-radius: 0;
+  box-shadow: none;
+  border-image: none;
+  border-width: 2px; 
+    background-image: none;	
+}
+
+.list-row:selected .button.flat:focus, .list-row:selected .button.flat {
+  border-image: none; }
+
+.list-row.button {
+  background-color: transparent; }
+.list-row.button:hover {
+	background-color: @theme_selected_fg_color;
+}
+.list-row.button:active, .list-row.button:active:hover {
+    box-shadow: inset 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+    color: @theme_fg_color;
+    background-color: alpha(black, 0.02); 
+}
+.list-row.button:checked {
+    color: @theme_fg_color;
+    box-shadow: inset 0 2px 3px -1px rgba(0, 0, 0, 0.5); 
+}
+.list-row.button:selected, .list-row.button:selected:hover, .list-row.button:focus, .list-row.button:focus:hover {
+    outline-color: alpha(@theme_selected_fg_color, 0.3); 
+}
+.list-row.button:selected, .list-row:selected {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+    outline-color: alpha(@theme_selected_fg_color, 0.3); 
+}
+.list-row.button:selected:hover {
+    background-color: shade(@theme_selected_bg_color, 1.05);
+    color: @theme_selected_fg_color; 
+}
+.list-row.button:selected:active:hover {
+    box-shadow: inset 0 2px 2px -2px rgba(0, 0, 0, 0.5);
+    color: @theme_selected_fg_color;
+    background-color: shade(@theme_selected_bg_color, 0.97); 
+}
+.list-row:selected .button.flat {
+      color: @theme_selected_fg_color; 
+}
+.list-row:selected .button.flat:focus {
+        border-image: none; 
+}
+.list-row:selected .button.flat:hover {
+      color: @theme_fg_color; 
+}
+.list-row:selected .button.flat:active {
+      color: @button_active_text; 
+}
+
+
+/**********************
+ * Window Decorations *
+ *********************/
+.window-frame {
+  border-radius: 0;
+  border-width: 20px;
+ box-shadow: 0 0 5px 3px @wm_shadow, 0 0 0 1px @window_frame; 
+  /* this is used for the resize cursor area */
+  margin: 3px; 
+}
+.window-frame:backdrop {
+    box-shadow: 0 0 5px 2px @wm_shadow, 0 0 0 1px @window_frame_inactive; 
+}
+.window-frame.tiled {
+    border-radius: 0; 
+}
+.window-frame.csd.popup {
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.12); 
+}
+.window-frame.csd.tooltip {
+    border-radius: 3px;
+    box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.4); 
+}
+
+
+/**************
+ * ComboBoxes *
+ **************/
+GtkComboBox {
+  -GtkComboBox-arrow-scaling: 0.5;
+  -GtkComboBox-shadow-type: none;
+}
+GtkComboBox > .button {}
+GtkComboBox:insensitive {
+    text-shadow: none;
+    icon-shadow: none; 
+}
+GtkComboBox .menuitem {
+    text-shadow: none; 
+}
+GtkComboBox .separator {
+    -GtkWidget-wide-separators: true;
+    -GtkWidget-horizontal-separator: 0;
+    -GtkWidget-vertical-separator: 0; 
 }
