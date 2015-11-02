@@ -66,15 +66,8 @@ button,
 input[type="reset"],
 input[type="button"],
 input[type="submit"] { 
-	border: 2px outset white;
-	background-color: #eeeeee;
-	color: black;
+    background-color: #eeeeee;
+    color: #007AC3 ;
 }
 
-body {
-	background-color: white;
-	color: black;
-	display: block;
-	margin: 8px;
-}
 
