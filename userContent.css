@@ -42,13 +42,13 @@ input {
 textarea {
 	border: 2px inset white;
 	background-color: white;
-	color: black;
+	color: #007AC3 ;
 }
 
 select {
 	border: 2px inset white;
 	background-color: white;
-	color: black;
+	color: #007AC3 ;
 }
  
 input[type="radio"],
