@@ -1850,13 +1850,13 @@ switch, switch slider {
     box-shadow: none; }
 
 switch {
-    background-image: url("switcher-off.png");
+    background-image: url("darkelements/switch/switcher-off.png");
 }
 
 menuitem:hover switch,
 row:selected switch,
 infobar switch {
-    background-image: url("switcher-off.png");
+    background-image: url("darkelements/switch/switcher-off.png");
 }
 
 headerbar switch,
