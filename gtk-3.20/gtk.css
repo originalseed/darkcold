@@ -1507,11 +1507,15 @@ menubar > menuitem:disabled,
 
 menu,
 .menu {
-    margin: 4px;
-    padding: 0;
-    border-radius: 0;
-    background-color: #383C4A;
-    border: 1px solid #2b2e39; }
+    background-image: url("darkelements/menu-bg.png"); 
+    border-image: url("darkelements/menu-border.png") 5 5 5 23 / 5px 5px 5px 23px stretch stretch; 
+    border-width: 5px 5px 5px 23px;
+    color: @menu_fg_color;
+    padding: 1px;
+    border-style: solid;
+	background-size: 100% 100%;
+	margin:10px;
+}
 .csd menu, .csd
 .menu {
     padding: 4px 0px;
@@ -1532,13 +1536,23 @@ menu .separator:not(label),
     color: #383C4A; }
 menu menuitem,
 .menu menuitem {
-    min-height: 16px;
-    min-width: 40px;
-    padding: 5px; }
+       color: @theme_text_color;
+	border: solid alpha(black, 0);	
+border-width: 2px;
+    padding: 0;
+background-color: transparent;
+	
+}
 menu menuitem:hover,
 .menu menuitem:hover {
-    color: #ffffff;
-    background-color: #cc575d; }
+    color: @theme_text_color;
+	border: solid;	
+	background-image: url("darkelements/menubar-item-active.png");
+    border-image: url("darkelements/menubar-item-border-active.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width: 2px;
+	background-size: 100% 100%;
+    padding: 0;    
+}
 menu menuitem:disabled,
 .menu menuitem:disabled {
     color: rgba(211, 218, 227, 0.45); }
@@ -1928,6 +1942,8 @@ treeview.check{
 	margin-right: 5px;    
 }
 
+check:hover,
+heck:selected,
 menuitem check:hover,
 .view check:selected, iconview check:selected,
 treeview.check:selected,
@@ -1989,6 +2005,12 @@ check:checked,
 treeview.check:checked {
     -gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/check2.png"), url("darkelements/check-radio/check2.png"));	
 }
+check:checked:prelight,
+.check:checked:prelight,
+treeview.check:checked:prelight{
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/check4.png"), url("darkelements/check-radio/check4.png"));	
+}
+
 .osd check:checked, filechooser actionbar check:checked {
     -gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/check2.png"), url("darkelements/check-radio/check2.png"));	
 }
@@ -1997,7 +2019,7 @@ menuitem check:checked:hover,
 treeview.check:checked:selected,
 row:selected check:checked,
 infobar check:checked {
-    -gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/check2.png"), url("darkelements/check-radio/check2.png"));	
+    -gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/check3.png"), url("darkelements/check-radio/check3.png"));	
 }
 .check:checked:disabled,
 check:checked:disabled,
@@ -2018,100 +2040,115 @@ infobar check:checked:disabled {
 .radio,
 radio,
 treeview.radio {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-dark.png"), url("assets/radio-unchecked-dark@2.png")); }
-
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option1.png"), url("darkelements/check-radio/option1.png"));
+}
 .osd radio, filechooser actionbar radio {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-dark.png"), url("assets/radio-unchecked-dark@2.png")); }
-
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option1.png"), url("darkelements/check-radio/option1.png"));
+}
 menuitem radio:hover,
 .view radio:selected, iconview radio:selected,
 treeview.radio:selected,
 row:selected radio,
 infobar radio {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-selected.png"), url("assets/radio-unchecked-selected@2.png")); }
-
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option3.png"), url("darkelements/check-radio/option3.png"));
+	
+}
 .radio:disabled,
 radio:disabled,
 treeview.radio:disabled {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png")); }
-
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option5.png"), url("darkelements/check-radio/option5.png"));
+	
+}
 .osd radio:disabled, filechooser actionbar radio:disabled {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png")); }
-
+ 	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option5.png"), url("darkelements/check-radio/option5.png"));
+	
+}
 menuitem radio:disabled:hover,
 .view radio:disabled:selected, iconview radio:disabled:selected,
 treeview.radio:disabled:selected,
 row:selected radio:disabled,
 infobar radio:disabled {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-selected.png"), url("assets/radio-unchecked-insensitive-selected@2.png")); }
-
+ 	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option5.png"), url("darkelements/check-radio/option5.png"));
+	
+}
 .radio:indeterminate,
 radio:indeterminate,
 treeview.radio:indeterminate {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-dark.png"), url("assets/radio-mixed-dark@2.png")); }
-
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option1.png"), url("darkelements/check-radio/option1.png"));
+	
+}
 .osd radio:indeterminate, filechooser actionbar radio:indeterminate {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-dark.png"), url("assets/radio-mixed-dark@2.png")); }
-
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option1.png"), url("darkelements/check-radio/option1.png"));
+	
+}
 menuitem radio:indeterminate:hover,
 .view radio:indeterminate:selected, iconview radio:indeterminate:selected,
 treeview.radio:indeterminate:selected,
 row:selected radio:indeterminate,
 infobar radio:indeterminate {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-selected.png"), url("assets/radio-mixed-selected@2.png")); }
-
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option3.png"), url("darkelements/check-radio/option3.png"));
+	
+}
 .radio:indeterminate:disabled,
 radio:indeterminate:disabled,
 treeview.radio:indeterminate:disabled {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png")); }
-
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option5.png"), url("darkelements/check-radio/option5.png"));
+	
+}
 .osd radio:indeterminate:disabled, filechooser actionbar radio:indeterminate:disabled {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png")); }
-
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option5.png"), url("darkelements/check-radio/option5.png"));
+	
+}
 menuitem radio:indeterminate:disabled:hover,
 .view radio:indeterminate:disabled:selected, iconview radio:indeterminate:disabled:selected,
 treeview.radio:indeterminate:disabled:selected,
 row:selected radio:indeterminate:disabled,
 infobar radio:indeterminate:disabled {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-selected.png"), url("assets/radio-mixed-insensitive-selected@2.png")); }
-
+ 	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option5.png"), url("darkelements/check-radio/option5.png"));
+	
+}
 .radio:checked,
 radio:checked,
 treeview.radio:checked {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-dark.png"), url("assets/radio-checked-dark@2.png")); }
-
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option2.png"), url("darkelements/check-radio/option.png"));
+	
+}
 .osd radio:checked, filechooser actionbar radio:checked {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-dark.png"), url("assets/radio-checked-dark@2.png")); }
-
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option2.png"), url("darkelements/check-radio/option.png"));
+	
+}
 menuitem radio:checked:hover,
 .view radio:checked:selected, iconview radio:checked:selected,
 treeview.radio:checked:selected,
 row:selected radio:checked,
 infobar radio:checked {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-selected.png"), url("assets/radio-checked-selected@2.png")); }
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option4.png"), url("darkelements/check-radio/option4.png"));
+	
+}
 
 .radio:checked:disabled,
 radio:checked:disabled,
 treeview.radio:checked:disabled {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png")); }
-
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option6.png"), url("darkelements/check-radio/option6.png"));
+}
 .osd radio:checked:disabled, filechooser actionbar radio:checked:disabled {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png")); }
-
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option6.png"), url("darkelements/check-radio/option6.png"));
+}
 menuitem radio:checked:disabled:hover,
 .view radio:checked:disabled:selected, iconview radio:checked:disabled:selected,
 treeview.radio:checked:disabled:selected,
 row:selected radio:checked:disabled,
 infobar radio:checked:disabled {
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-selected.png"), url("assets/radio-checked-insensitive-selected@2.png")); }
-
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option6.png"), url("darkelements/check-radio/option6.png"));
+}
 .view.content-view.check:not(list), iconview.content-view.check:not(list) {
-    -gtk-icon-source: -gtk-scaled(url("assets/checkbox-selectionmode-dark.png"), url("assets/checkbox-selectionmode-dark@2.png"));
+    	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/check6.png"), url("darkelements/check-radio/check6.png"));
     background-color: transparent; }
 
 .view.content-view.check:checked:not(list), iconview.content-view.check:checked:not(list) {
-    -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-selectionmode-dark.png"), url("assets/checkbox-checked-selectionmode-dark@2.png"));
-    background-color: transparent; }
+    	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/check4.png"), url("darkelements/check-radio/check4.png"));
+	background-color: transparent; 
+}
 
 checkbutton.text-button, radiobutton.text-button {
     padding: 2px 0;
