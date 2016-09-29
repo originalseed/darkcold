@@ -22,48 +22,60 @@
     background-color: @theme_bg_color;
     color: @theme_fg_color;
 }
-
-*:disabled {
-    -gtk-icon-effect: dim; }
+.background:backdrop {
+    color: @backdrop_fg_color;
+    background-color: @backdrop_bg_color; 
+}
 
 .gtkstyle-fallback {
-    background-color: #383C4A;
-    color: #D3DAE3; }
+    background-color: @theme_bg_color;
+    color: @theme_selected_fg_color;
+}
 .gtkstyle-fallback:hover {
-    background-color: #4e5467;
-    color: #D3DAE3; }
+    background-color: @theme_bg_color;
+    color: @theme_selected_fg_color;
+}
 .gtkstyle-fallback:active {
-    background-color: #22242d;
-    color: #D3DAE3; }
+    background-color: @theme_bg_color;
+    color: @theme_selected_fg_color;
+}
 .gtkstyle-fallback:disabled {
-    background-color: #3c4150;
-    color: rgba(211, 218, 227, 0.45); }
+    background-color: @theme_disabled_bg_color;
+    color: @theme_disabled_fg_color; 
+}
 .gtkstyle-fallback:selected {
-    background-color: #cc575d;
-    color: #ffffff; }
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+}
 
-.view, iconview,
-.view text,
-iconview text,
-textview text {
-    color: #D3DAE3;
-    background-color: #404552; }
-.view:selected, iconview:selected, .view:selected:focus, iconview:selected:focus,
-.view text:selected,
-iconview text:selected,
-textview text:selected,
-.view text:selected:focus,
-iconview text:selected:focus,
-textview text:selected:focus {
-    border-radius: 2px; }
+*:disabled {
+    -gtk-icon-effect: dim; 
+}
 
-textview border {
-    background-color: #3c414e; }
+textview text,
+.view {
+    color: @theme_fg_color;
+    background-color: @theme_bg_color; 
+}
+textview text:backdrop,
+.view:backdrop {
+    color: @backdrop_fg_color;
+    background-color: @backdrop_bg_color; 
+}
+iconview {
+    color: @theme_fg_color;
+    background-color: @theme_bg_color;
+}
+iconview:backdrop {
+    color: @backdrop_fg_color;
+    background-color: @backdrop_bg_color; 
+}
 
 rubberband, flowbox rubberband, treeview.view rubberband, .content-view rubberband,
 .rubberband {
-    border: 1px solid #b8383e;
-    background-color: rgba(184, 56, 62, 0.2); }
+    border: 1px solid @borders;
+    background-color: @theme_bg_color
+}
 
 flowbox flowboxchild {
     padding: 3px;
@@ -75,43 +87,64 @@ label.separator, popover label.separator,
 popover.background label.separator {
     color: #D3DAE3; }
 
-label selection {
-    color: #ffffff;
-    background-color: #cc575d; }
-
+label.separator {
+    color: @theme_selected_fg_color; 
+}
+label.separator:backdrop {
+    color: @theme_disabled_fg_color; 
+}
 label:disabled {
-    color: rgba(211, 218, 227, 0.45); }
+    color: @backdrop_fg_color; 
+}
+label:disabled:backdrop {
+    color: @theme_disabled_fg_color; 
+}
 
 .dim-label, label.separator, popover label.separator,
 popover.background label.separator, headerbar .subtitle, .titlebar:not(headerbar) .subtitle {
-    opacity: 0.55; }
+    opacity: 0.55; 
+}
 
 assistant .sidebar {
-    background-color: #404552;
-    border-top: 1px solid #2b2e39; }
-
+    background-color: @theme_bg_color;
+    border-top: 1px solid @borders; 
+}
+assistant .sidebar:dir(ltr) {
+    border-right: 1px solid @borders; 
+}
+assistant .sidebar:dir(rtl) {
+    border-left: 1px solid @borders; 
+}
+assistant .sidebar:backdrop {
+    background-color: @theme_bg_color;
+    border-color: @borders; 
+}
 assistant.csd .sidebar {
-    border-top-style: none; }
-
+    border-top-style: none; 
+}
 assistant .sidebar label {
-    padding: 6px 12px; }
-
+    padding: 6px 12px; 
+}
 assistant .sidebar label.highlight {
-    background-color: #cc575d;
-    color: #ffffff; }
+    background-color: @theme_selected_bg_color; 
+}
 
 textview {
-    background-color: #404552; }
+    background-color: @theme_bg_color; 
+}
+textview:backdrop {
+    background-color: @backdrop_bg_color; 
+}
 
 popover.osd, popover.magnifier, .csd popover.osd, .csd popover.magnifier,
 popover.background.osd,
 popover.background.magnifier, .csd popover.background.osd, .csd popover.background.magnifier, .osd .scale-popup, .osd {
-    color: #BAC3CF;
+    color: @theme_fg_color;
     border: none;
-    background-color: rgba(53, 57, 69, 0.95);
+    background-color: @theme_bg_color;
     background-clip: padding-box;
-    outline-color: rgba(186, 195, 207, 0.3);
-    box-shadow: none; }
+    outline-color: @outline_color;
+}
 
 @keyframes spin {
     to {
@@ -127,21 +160,41 @@ spinner:checked {
 spinner:checked:disabled {
     opacity: 0.5; }
 
-entry {
-    min-height: 22px;
-    border: 1px solid;
-    padding: 2px 8px;
+
+.entry {
     caret-color: currentColor;
-    border-radius: 3px;
+    background-color: @theme_base_color;
+    border: 1px #3D3D3D solid;
     transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    color: #D3DAE3;
-    border-color: #2b2e39;
-    background-color: #404552;
-    background-image: linear-gradient(to bottom, #404552); }
+    padding: 4px 3px;
+    inner-border: 5px;
+    color: @entry_text_color;
+}
+.entry:insensitive {
+    border-style: solid;
+    background-color: alpha(@theme_base_color, 0.85);
+}
+.entry:focus{
+
+}
+.entry:selected,
+.entry:selected:focus {
+	background-color: @theme_selected_bg_color;
+	color: @theme_selected_fg_color;
+}
+.entry.progressbar {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+
+    border-width: 1px;
+}
+
 entry.search {
-    border-radius: 20px; }
+
+}
 entry image {
-    color: #b6bcc6; }
+
+}
 entry image.left {
     padding-left: 0;
     padding-right: 5px; }
@@ -154,18 +207,6 @@ entry.flat, entry.flat:focus {
     background-image: none;
     border-color: transparent;
     border-radius: 0; }
-entry:focus {
-    background-clip: border-box;
-    color: #D3DAE3;
-    border-color: #2b2e39;
-    background-color: #404552;
-    background-image: linear-gradient(to bottom, #404552);
-    box-shadow: inset 1px 0 #cc575d, inset -1px 0 #cc575d, inset 0 1px #cc575d, inset 0 -1px #cc575d; }
-entry:disabled {
-    color: rgba(211, 218, 227, 0.45);
-    border-color: rgba(43, 46, 57, 0.55);
-    background-color: rgba(64, 69, 82, 0.55);
-    background-image: linear-gradient(to bottom, rgba(64, 69, 82, 0.55)); }
 entry.warning {
     color: #ffffff;
     border-color: #2b2e39;
@@ -220,16 +261,41 @@ entry:drop(active):focus, entry:drop(active) {
     border-color: rgba(26, 28, 34, 0.35);
     background-image: linear-gradient(to bottom, #cc575d); }
 .osd entry:disabled {
-    color: rgba(186, 195, 207, 0.55);
-    background-image: linear-gradient(to bottom, rgba(102, 109, 132, 0.2)); }
+background-color: transparent;
+    background-image: url("darkelements/button-normal.png");
+    background-size: 100% 100%;
+    color: @theme_fg_color;
+    border-color: @borders;
+    background-clip: padding-box;    
+}
 .osd entry selection:focus, .osd entry selection {
-    color: #cc575d;
-    background-color: #ffffff; }
+    background-color: transparent;
+    background-image: url("darkelements/button-normal.png");
+    background-size: 100% 100%;
+    color: @theme_fg_color;
+    border-color: @borders_active;
+    background-clip: padding-box;
+}
+.osd entry:backdrop, .osd spinbutton:backdrop {
+    background-color: transparent;
+    background-image: url("darkelements/button-normal.png");
+    background-size: 100% 100%;
+    color: @theme_fg_color;
+    border-color: @borders;
+    background-clip: padding-box; }
+.osd entry:disabled, .osd spinbutton:disabled {
+    background-color: transparent;
+    background-image: url("darkelements/button-disabled.png");
+    background-size: 100% 100%;
+    color: @theme_disabled_fg_color;
+    border-color: @borders;
+    background-clip: padding-box; }
+
 entry progress {
     margin: 0 -6px;
     border-radius: 0;
     border-width: 0 0 2px;
-    border-color: #cc575d;
+    border-color: @borders;
     border-style: solid;
     background-image: none;
     background-color: transparent;
@@ -1436,40 +1502,47 @@ treeview.view.expander:selected:hover {
 treeview.view.expander:checked {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
 treeview.view.progressbar, treeview.view.progressbar:focus {
-    color: #ffffff;
-    border-radius: 3px;
-    background-image: linear-gradient(to bottom, #cc575d); }
+    border: 1px solid @borders;
+    border-radius: 4px;
+    background-image: url("darkelements/progressbar-horiz.png");
+    background-size:  100% 100%;
+}
 treeview.view.progressbar:selected, treeview.view.progressbar:selected:focus, treeview.view.progressbar:focus:selected, treeview.view.progressbar:focus:selected:focus {
-    color: #cc575d;
-    box-shadow: none;
-    background-image: linear-gradient(to bottom, #ffffff); }
+    background-image: url("darkelements/progressbar-horiz.png");
+    background-size:  100% 100%;
+    border-color: @theme_bg_color;
+    background-color: @theme_bg_color;
+}
 treeview.view.trough, treeview.view.trough:selected, treeview.view.trough:selected:focus {
-    color: #D3DAE3;
-    background-image: linear-gradient(to bottom, #2b2e39);
-    border-radius: 3px;
-    border-width: 0; }
-treeview.view header button {
-    min-height: 0;
-    min-width: 0;
-    padding: 3px 6px;
+    background-color: @trough_bg_color;
+    border-radius: 4px;
+}
+treeview.view header button,
+treeview.view header .titlebar button.titlebutton,
+.titlebar treeview.view header button.titlebutton {
+    color: @theme_fg_color;
+    background-image: url("darkelements/button-normal.png");
+    background-size: 100% 100%;
     font-weight: bold;
-    color: #b6bcc6;
-    background-color: #404552;
-    background-image: none;
-    border-style: none solid none none;
-    border-radius: 0;
-    border-image: linear-gradient(to bottom, #404552 20%, rgba(255, 255, 255, 0.11) 20%, rgba(255, 255, 255, 0.11) 80%, #404552 80%) 0 1 0 0/0 1px 0 0 stretch; }
+}
+treeview.view header button:active,
 treeview.view header button:hover {
-    color: #cc575d; }
-treeview.view header button:active {
-    color: #D3DAE3; }
-treeview.view header button:active, treeview.view header button:hover {
-    background-color: #404552; }
+padding: 3px 6px;
+    border-style: none solid solid none;
+    border-radius: 0;
+    background-image: url("darkelements/button-hover.png");
+    background-size: 100% 100%;
+    border-color: @borders_active;  
+}
+
 treeview.view header button:active:hover {
-    color: #D3DAE3; }
+
+}
 treeview.view header button:disabled {
-    border-color: #383C4A;
-    background-image: none; }
+ border-color: @theme_bg_color;
+    background-image: url("darkelements/button-disabled.png");   
+    background-size: 100% 100%;
+}
 treeview.view header button:last-child {
     border-right-style: none;
     border-image: none; }
@@ -1478,35 +1551,33 @@ treeview.view header.button.dnd,
 treeview.view header.button.dnd:selected,
 treeview.view header.button.dnd:hover,
 treeview.view header.button.dnd:active {
-    padding: 0 6px;
-    transition: none;
-    color: #ffffff;
-    background-color: #cc575d;
-    border-radius: 0;
-    border-style: none; }
+    border-color: @theme_bg_color;
+    background-image: url("darkelements/button-disabled.png");   
+    background-size: 100% 100%; 
+}
 
 menubar,
 .menubar {
+    border-style: solid;
+    border-color: @borders;
+    border-width: 0px 1px 1px 1px;
     -GtkWidget-window-dragging: true;
-    padding: 0px;
-    background-color: #2f343f;
-    color: rgba(207, 218, 231, 0.8); }
+    padding: 0px; }
 menubar:backdrop,
 .menubar:backdrop {
-    color: rgba(207, 218, 231, 0.5); }
+    background-color: @theme_bg_color; }
 menubar > menuitem,
 .menubar > menuitem {
-    padding: 4px 8px;
-    border: solid transparent;
-    border-width: 0; }
+    padding: 0px 4px 0px 4px; }
 menubar > menuitem:hover,
 .menubar > menuitem:hover {
-    background-color: #cc575d;
-    color: #ffffff; }
+    background-image: url("darkelements/button-hover.png");
+    background-size:  100% 100%;
+    color: @theme_fg_color; }
 menubar > menuitem:disabled,
 .menubar > menuitem:disabled {
-    color: rgba(207, 218, 231, 0.2);
-    border-color: transparent; }
+    color: @theme_disabled_fg_color; 
+}
 
 menu,
 .menu {
@@ -1529,8 +1600,10 @@ menu separator,
 .menu separator,
 .csd
 .menu separator {
-    margin: 2px 0;
-    background-color: #383C4A; }
+border:solid;
+    border-image: url("darkelements/line-h.png") 0 0 2 0  stretch ;
+	border-width:  0 0 2px 0;    
+}
 menu .separator:not(label),
 .csd menu .separator:not(label),
 .menu .separator:not(label),
@@ -1613,18 +1686,20 @@ menu > arrow:disabled,
 
 popover,
 popover.background {
-    padding: 2px;
-    border-radius: 3px;
-    background-clip: border-box;
-    background-color: #383C4A;
-    box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.35); }
+padding: 2px;
+    border-radius: 5px;    
+}
 .csd popover, popover, .csd
 popover.background,
 popover.background {
-    border: 1px solid #20222a; }
+    border: 1px solid @borders_active;
+}
 popover separator,
 popover.background separator {
-    background-color: #383C4A; }
+    border:solid;
+    border-image: url("darkelements/line-h.png") 0 0 2 0  stretch ;
+	border-width:  0 0 2px 0;
+}
 popover > list,
 popover > .view,
 popover > iconview,
@@ -1649,206 +1724,158 @@ cursor-handle.bottom {
     -gtk-icon-source: -gtk-icontheme("selection-end-symbolic"); }
 
 notebook {
-    padding: 0; }
-notebook.frame {
-    border: 1px solid #2b2e39; }
-notebook.frame > header {
-    margin: -1px; }
-notebook.frame > header.top {
-    margin-bottom: 0; }
-notebook.frame > header.bottom {
-    margin-top: 0; }
-notebook.frame > header.left {
-    margin-right: 0; }
-notebook.frame > header.right {
-    margin-left: 0; }
-notebook.frame > header.top, notebook.frame > header.bottom {
-    padding-left: 0;
-    padding-right: 0; }
-notebook.frame > header.left, notebook.frame > header.right {
-    padding-top: 0;
-    padding-bottom: 0; }
-notebook > stack:not(:only-child) {
-    background-color: #404552; }
-notebook > header {
-    padding: 2px;
-    background-color: #383C4A; }
-notebook > header.top {
-    box-shadow: inset 0 -1px #2b2e39; }
-notebook > header.bottom {
-    box-shadow: inset 0 1px #2b2e39; }
-notebook > header.right {
-    box-shadow: inset 1px 0 #2b2e39; }
-notebook > header.left {
-    box-shadow: inset -1px 0 #2b2e39; }
-notebook > header.top {
-    padding-bottom: 0; }
-notebook > header.top > tabs > tab {
-    padding: 2px 10px;
-    min-width: 20px;
-    min-height: 20px;
-    outline-offset: -4px;
-    border: 1px solid transparent;
-    border-bottom: none;
-    border-radius: 1px 1px 0 0; }
-notebook > header.top > tabs > tab + tab {
-    margin-left: -1px; }
-notebook > header.bottom {
-    padding-top: 0; }
-notebook > header.bottom > tabs > tab {
-    padding: 2px 10px;
-    min-width: 20px;
-    min-height: 20px;
-    outline-offset: -4px;
-    border: 1px solid transparent;
-    border-top: none;
-    border-radius: 0 0 1px 1px; }
-notebook > header.bottom > tabs > tab + tab {
-    margin-left: -1px; }
-notebook > header.right {
-    padding-left: 0; }
-notebook > header.right > tabs > tab {
-    padding: 2px 10px;
-    min-width: 20px;
-    min-height: 20px;
-    outline-offset: -4px;
-    border: 1px solid transparent;
-    border-left: none;
-    border-radius: 0 1px 1px 0; }
-notebook > header.right > tabs > tab + tab {
-    margin-top: -1px; }
-notebook > header.left {
-    padding-right: 0; }
-notebook > header.left > tabs > tab {
-    padding: 2px 10px;
-    min-width: 20px;
-    min-height: 20px;
-    outline-offset: -4px;
-    border: 1px solid transparent;
-    border-right: none;
-    border-radius: 1px 0 0 1px; }
-notebook > header.left > tabs > tab + tab {
-    margin-top: -1px; }
-notebook > header.top > tabs > arrow.up, notebook > header.bottom > tabs > arrow.up {
-    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
-notebook > header.top > tabs > arrow.up:last-child, notebook > header.bottom > tabs > arrow.up:last-child {
-    margin-left: 2px; }
-notebook > header.top > tabs > arrow.down, notebook > header.bottom > tabs > arrow.down {
-    -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
-notebook > header.top > tabs > arrow.down:first-child, notebook > header.bottom > tabs > arrow.down:first-child {
-    margin-right: 2px; }
-notebook > header.left > tabs > arrow.up, notebook > header.right > tabs > arrow.up {
-    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
-notebook > header.left > tabs > arrow.up:last-child, notebook > header.right > tabs > arrow.up:last-child {
-    margin-top: 2px; }
-notebook > header.left > tabs > arrow.down, notebook > header.right > tabs > arrow.down {
-    -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
-notebook > header.left > tabs > arrow.down:first-child, notebook > header.right > tabs > arrow.down:first-child {
-    margin-bottom: 2px; }
-notebook > header > tabs > arrow {
-    color: rgba(211, 218, 227, 0.45); }
-notebook > header > tabs > arrow:hover {
-    color: rgba(211, 218, 227, 0.725); }
-notebook > header > tabs > arrow:active {
-    color: #D3DAE3; }
-notebook > header > tabs > arrow:disabled {
-    color: rgba(211, 218, 227, 0.15); }
-notebook > header.top > tabs > tab:hover:not(:checked) {
-    box-shadow: inset 0 -1px #2b2e39; }
-notebook > header.bottom > tabs > tab:hover:not(:checked) {
-    box-shadow: inset 0 1px #2b2e39; }
-notebook > header.left > tabs > tab:hover:not(:checked) {
-    box-shadow: inset -1px 0 #2b2e39; }
-notebook > header.right > tabs > tab:hover:not(:checked) {
-    box-shadow: inset 1px 0 #2b2e39; }
-notebook > header > tabs > tab {
-    color: rgba(211, 218, 227, 0.45);
-    background-color: rgba(64, 69, 82, 0); }
-notebook > header > tabs > tab:hover:not(:checked) {
-    color: rgba(211, 218, 227, 0.725);
-    background-color: rgba(64, 69, 82, 0.5);
-    border-color: #2b2e39; }
-notebook > header > tabs > tab:checked {
-    color: #D3DAE3;
-    background-color: #404552;
-    border-color: #2b2e39; }
-notebook > header > tabs > tab button.flat, notebook > header > tabs > tab button.sidebar-button {
-    min-height: 22px;
-    min-width: 16px;
-    padding: 0;
-    color: #9da3ad; }
-notebook > header > tabs > tab button.flat:hover, notebook > header > tabs > tab button.sidebar-button:hover {
-    color: #ff4d4d; }
-notebook > header > tabs > tab button.flat:active, notebook > header > tabs > tab button.sidebar-button:active, notebook > header > tabs > tab button.flat:active:hover, notebook > header > tabs > tab button.sidebar-button:active:hover {
-    color: #cc575d; }
+background-image: -gtk-gradient (linear,
+                                     left top, left bottom,
+                                     from (#1C1C1C),
+                                     to (#000000));
+    border-color: #3D3D3D; 
+    border-style:solid;
+    border-width:1px;
+    border-radius: 0;
+    background-color:#1C1C1C;
+    -GtkNotebook-tab-overlap: 1px;
+    padding:5px 2px;
+  	background-size: 100% 100%;    
+
+}
+.notebook tab GtkLabel:active {
+	color: @theme_fg_color;
+}
+
+.notebook tab GtkLabel {
+	color: @theme_fg_color;
+	padding:3px;
+}
+
+
+.notebook tab.top {
+	padding: 2px 5px 0 5px;
+	border: solid;
+    background-image: url("darkelements/tab-top.png");
+    border-image: url("darkelements/tab-top-border.png") 2 2 0 2 / 2px 2px 0 2px stretch stretch;
+    border-width:2px 2px 0 2px;
+  	background-size: 100% 100%;
+}
+.notebook tab.top:active {
+	padding: 3px 7px 1px 7px;
+	border: solid;
+	background-size: 100% 100%;
+	background-image: -gtk-gradient (linear,
+                                    0 0, 0 1,
+                                    color-stop(0, #0D479F),
+                                    color-stop(0.5, #000000),
+									color-stop(1, #252525)
+						);
+    border-image: url("darkelements/tab-top-active-border.png") 2 2 0 2 / 2px 2px 0 2px stretch stretch;
+    border-width: 2px 2px 0 2px;
+  	
+}
+.notebook tab.right:active {
+	padding: 4px 6px 4px 1px;
+}
+
+.notebook tab.right {
+	padding: 3px 4px 3px 0;
+}
+
+.notebook tab.bottom:active {
+	padding: 1px 7px 4px 7px;
+}
+
+.notebook tab.bottom {
+	padding: 0 5px 3px 5px;
+}
+
+.notebook tab.left:active {
+	padding: 4px 1px 4px 6px;
+}
+
+.notebook tab.left {
+	padding: 3px 0 3px 4px;
+}
+
+
+.notebook tab .button {
+	padding: 0;
+	background-image: none;
+	border-image: none;
+	border-width:2px;
+	background-color: transparent;
+	border-color: transparent;
+}
+.notebook tab .button:hover,
+.notebook tab .button:active,
+.notebook tab .button:selected{
+border: solid;
+    background-image: url("darkelements/button-hover.png");
+    border-image: url("darkelements/button-hover-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width:2px;
+	background-size: 100% 100%;
+}
+
 
 scrollbar {
-    background-color: #3e434f;
-    transition: 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-* {
-    -GtkScrollbar-has-backward-stepper: false;
-    -GtkScrollbar-has-forward-stepper: false; }
-scrollbar.top {
-    border-bottom: 1px solid #2b2e39; }
-scrollbar.bottom {
-    border-top: 1px solid #2b2e39; }
-scrollbar.left {
-    border-right: 1px solid #2b2e39; }
-scrollbar.right {
-    border-left: 1px solid #2b2e39; }
-scrollbar button {
-    border: none; }
+    -GtkScrollbar-has-backward-stepper: true;
+    -GtkScrollbar-has-forward-stepper: true; } 
+scrollbar trough {
+    background-color: @trough_bg_color;
+    border: 1px  solid @borders; }
+scrollbar trough:backdrop {
+    background-color: @theme_bg_color;
+    border-color: @borders; }    
+
+/* Horizontal Items  */
+/*   ** Below **    */
+
+scrollbar.horizontal trough { 
+    min-height: 10px;
+    padding-bottom: 2px; }
+scrollbar.horizontal slider {  
+    border: solid;
+    border-image: url("darkelements/scrollbars/slider-horiz.png") 6 2 6 2 / 6px 2px 6px 2px stretch ;
+    border-width: 6px 2px;
+    min-width: 100px; }
+scrollbar.horizontal slider:hover {  
+    border: solid;
+    border-image: url("darkelements/scrollbars/slider-horiz-active.png") 6 2 6 2 / 6px 2px 6px 2px stretch ;
+    border-width: 6px 2px;
+    min-width: 100px; }
+scrollbar.horizontal button.up {	
+    background-image: url("darkelements/scrollbars/stepper-left.png"); }
+scrollbar.horizontal button.up:hover {	
+    background-image: url("darkelements/scrollbars/stepper-left-hover.png"); }
+scrollbar.horizontal button.down {	
+    background-image: url("darkelements/scrollbars/stepper-right.png"); } 
+scrollbar.horizontal button.down:hover {	
+    background-image: url("darkelements/scrollbars/stepper-right-hover.png"); }
+
+/* Vertical Items  */
+/* **  Below  **  */
+
+scrollbar.vertical trough { 
+    min-width: 10px;
+    padding-right: 2px; }
+scrollbar.vertical slider { 
+    border: solid;
+    border-image: url("darkelements/scrollbars/slider-vert.png") 2 6 2 6 / 2px 6px 2px 6px stretch;
+    border-width: 2px 6px;
+    min-height: 100px; }
+scrollbar.vertical slider:hover {  
+    border: solid;
+    border-image: url("darkelements/scrollbars/slider-vert-active.png") 2 6 2 6 / 2px 6px 2px 6px stretch;
+    border-width: 2px 6px;
+    min-height: 100px; }
+scrollbar.vertical button.up {	
+    background-image: url("darkelements/scrollbars/stepper-up.png");
+    min-height: 4px; }	
+scrollbar.vertical button.up:hover {
+    background-image: url("darkelements/scrollbars/stepper-up-hover.png"); }	
 scrollbar.vertical button.down {
-    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
-scrollbar.vertical button.up {
-    -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
-scrollbar.horizontal button.down {
-    -gtk-icon-source: -gtk-icontheme("pan-right-symbolic"); }
-scrollbar.horizontal button.up {
-    -gtk-icon-source: -gtk-icontheme("pan-left-symbolic"); }
-scrollbar slider {
-    min-width: 6px;
-    min-height: 6px;
-    margin: -1px;
-    border: 4px solid transparent;
-    border-radius: 8px;
-    background-clip: padding-box;
-    background-color: #767b87; }
-scrollbar slider:hover {
-    background-color: #676b78; }
-scrollbar slider:hover:active {
-    background-color: #cc575d; }
-scrollbar slider:disabled {
-    background-color: transparent; }
-scrollbar.fine-tune slider {
-    min-width: 4px;
+    background-image: url("darkelements/scrollbars/stepper-down.png");
     min-height: 4px; }
-scrollbar.fine-tune.horizontal slider {
-    border-width: 5px 4px; }
-scrollbar.fine-tune.vertical slider {
-    border-width: 4px 5px; }
-scrollbar.overlay-indicator:not(.dragging):not(.hovering) {
-    opacity: 0.4;
-    border-color: transparent;
-    background-color: transparent; }
-scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider {
-    margin: 0;
-    min-width: 4px;
-    min-height: 4px;
-    background-color: #a5abb5;
-    border: 1px solid rgba(0, 0, 0, 0.3); }
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal slider {
-    margin: 0 2px;
-    min-width: 40px; }
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical slider {
-    margin: 2px 0;
-    min-height: 40px; }
-scrollbar.overlay-indicator.dragging, scrollbar.overlay-indicator.hovering {
-    opacity: 0.99; }
-scrollbar.horizontal slider {
-    min-width: 40px; }
-scrollbar.vertical slider {
-    min-height: 40px; }
+scrollbar.vertical button.down:hover {
+    background-image: url("darkelements/scrollbars/stepper-down-hover.png"); }
+
 
 switch {
     font: 1;
@@ -2319,75 +2346,83 @@ scale.vertical indicator {
     min-width: 3px; }
 scale.vertical.fine-tune indicator {
     min-width: 2px; }
-
 progressbar {
     padding: 0;
     font-size: smaller;
-    color: rgba(211, 218, 227, 0.7); }
+    color: @theme_fg_color; }
+progressbar progress {
+    background-image: url("darkelements/progressbar-horiz.png");
+    background-size: 100% 100%;
+    border-radius: 1px; }
+progressbar progress.left {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px; }
+progressbar progress.right {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px; }
+progressbar progress.top {
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px; }
+progressbar progress.bottom {
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px; }
 progressbar.osd {
-    min-width: 3px;
-    min-height: 3px;
-    background-color: transparent; }
+}
 progressbar.osd trough {
     border-style: none;
+    border-radius: 0;
+    background-color: transparent; }
+progressbar.osd progress {
+    background-image: url("darkelements/progressbar-horiz.png");
+    border-style: none;
+    border-radius: 0; }
+
+
+levelbar block {levelbar trough {
+    border: 1px solid;
+    padding: 2px;
+    border-radius: 3px;
     background-color: transparent;
-    box-shadow: none; }
-progressbar progress {
-    background-color: #cc575d;
-    border: none;
-    border-radius: 3px;
-    box-shadow: none; }
-row:selected progressbar progress,
-infobar progressbar progress {
-    background-color: #ffffff; }
-progressbar trough {
-    border: none;
-    border-radius: 3px;
-    background-color: #2d303b; }
-row:selected progressbar trough,
-infobar progressbar trough {
-    background-color: rgba(0, 0, 0, 0.2); }
-
-levelbar block {
-    min-width: 32px;
-    min-height: 1px; }
-
-levelbar.vertical block {
-    min-width: 1px;
-    min-height: 32px; }
-
-levelbar trough {
-    border: none;
-    padding: 3px;
-    border-radius: 3px;
-    background-color: #2d303b; }
-
+    background-image: linear-gradient(to bottom, #323232, #080808 55%, #000000);
+    color: @theme_fg_color;
+    border-color: @borders; }
+levelbar trough:backdrop {
+    background-color: transparent;
+    color: @theme_fg_color;
+    border-color: @borders;
+    background-image: linear-gradient(to bottom, #323232, #080808 55%, #000000); }
 levelbar.horizontal.discrete block {
     margin: 0 1px; }
-
 levelbar.vertical.discrete block {
     margin: 1px 0; }
-
 levelbar block:not(.empty) {
-    border: 1px solid #cc575d;
-    background-color: #cc575d;
-    border-radius: 2px; }
-
+    border: 1px solid @borders_active;
+    background-color: @theme_selected_bg_color;
+    border-radius: 1px; }
+levelbar block:not(.empty):backdrop {
+    border-color: @borders_active; }
 levelbar block.low {
-    border-color: #F27835;
-    background-color: #F27835; }
-
+    border-color: @borders;
+    background-color: @theme_bg_color; }
+levelbar block.low:backdrop {
+    border-color: @borders; }
 levelbar block.high {
-    border-color: #cc575d;
-    background-color: #cc575d; }
-
+    border-color: @borders_active;
+    background-color: @theme_selected_bg_color; }
+levelbar block.high:backdrop {
+    border-color: @borders_active; }
 levelbar block.full {
-    border-color: #73d216;
-    background-color: #73d216; }
-
+    border-color: @borders;
+    background-color: @theme_bg_color; }
+levelbar block.full:backdrop {
+    border-color: @borders; }
 levelbar block.empty {
-    background-color: #404552;
-    border-color: #404552; }
+    border: 1px solid @borders;
+    border-radius: 1px;
+    background-color: transparent;
+    border-color: @borders; }
+levelbar block.empty:backdrop {
+    border-color: @borders; }
 
 printdialog paper {
     border: 1px solid #2b2e39;
@@ -2402,7 +2437,7 @@ frame > border,
     margin: 0;
     padding: 0;
     border-radius: 0;
-    border: 1px solid #2b2e39; }
+    border: 1px solid @borders; }
 frame > border.flat,
 .frame.flat {
     border-style: none; }
@@ -2526,13 +2561,14 @@ row.activatable:selected.has-open-popup, row.activatable:selected:hover {
 
 .app-notification {
     padding: 10px;
-    color: #BAC3CF;
-    background-color: rgba(53, 57, 69, 0.95);
+    color: @theme_fg_color;
+    background-color: @theme_bg_color;
     background-clip: border-box;
     border-radius: 0 0 2px 2px;
     border-width: 0 1px 1px 1px;
     border-style: solid;
-    border-color: rgba(31, 33, 40, 0.95); }
+    border-color: @borders
+}
 .app-notification border {
     border: none; }
 .app-notification button {
@@ -4259,38 +4295,6 @@ filechooser placessidebar.sidebar scrollbar trough,
     background-color: rgba(42, 45, 55, 0.95); }
 
 
-
-@define-color insensitive_base_color #404552;
-@define-color theme_unfocused_fg_color #D3DAE3;
-@define-color theme_unfocused_text_color #D3DAE3;
-@define-color theme_unfocused_bg_color #383C4A;
-@define-color theme_unfocused_base_color #404552;
-@define-color borders #2b2e39;
-@define-color unfocused_borders #2b2e39;
-@define-color warning_color #F27835;
-@define-color error_color #FC4138;
-@define-color success_color #73d216;
-@define-color placeholder_text_color #A8A8A8;
-@define-color link_color #e4a5a8;
-@define-color content_view_bg #404552;
-@define-color wm_title alpha(#cfdae7, 0.8);
-@define-color wm_unfocused_title alpha(#cfdae7, 0.5);
-@define-color wm_bg #2f343f;
-@define-color wm_bg_unfocused #323843;
-@define-color wm_highlight #363b48;
-@define-color wm_shadow alpha(black, 0.35);
-@define-color wm_button_close_bg #cc575d;
-@define-color wm_button_close_hover_bg #d7787d;
-@define-color wm_button_close_active_bg #be3841;
-@define-color wm_icon_close_bg #2f343f;
-@define-color wm_button_hover_bg #454C5C;
-@define-color wm_button_active_bg #cc575d;
-@define-color wm_button_hover_border #262932;
-@define-color wm_icon_bg #90939B;
-@define-color wm_icon_unfocused_bg #666A74;
-@define-color wm_icon_hover_bg #C4C7CC;
-@define-color wm_icon_active_bg #ffffff;
-
 /* dark colormap */
 
 @define-color theme_base_color #060A0F;
@@ -4405,3 +4409,5 @@ filechooser placessidebar.sidebar scrollbar trough,
 @define-color window_frame #7C7C7C;
 @define-color window_frame_inactive #3E3E3E;
 
+@define-color borders #333333;
+@define-color borders_active #606060
