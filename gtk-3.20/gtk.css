@@ -132,9 +132,7 @@
     outline-style: dashed;
     outline-offset: -3px;
     outline-width: 1px;
-    -gtk-outline-radius: 2px; 
-    color: @theme_text_color;
-}
+    -gtk-outline-radius: 2px; }
 
 .background {
     background-color: @theme_bg_color;
@@ -470,12 +468,11 @@ button.flat:disabled, button.sidebar-button:disabled {
     background-image: none; }
 button:disabled {
     background-color: @theme_base_color;
-	border: solid;
-    color: @theme_text_color;
-    background-image: url("darkelements/button-insensitive.png");
-    border-image: url("darkelements/button-normal-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
-    border-width:2px;
-	background-size: 100% 100%;   
+    color: lighter(@internal_element_color);
+
+    border-image: none;
+    border-style: none;
+    border-width: 0;    
 }
 
 button.image-button {
@@ -1997,9 +1994,9 @@ scrollbar.vertical button.down:hover {
 
 switch {
     font: 1;
-    min-width: 74px;
+    min-width: 52px;
     min-height: 24px;
-    background-size: 74px 24px;
+    background-size: 52px 24px;
     background-repeat: no-repeat;
     background-position: center center; }
 switch slider {
