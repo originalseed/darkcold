@@ -62,10 +62,9 @@ textview border {
 
 rubberband, flowbox rubberband, treeview.view rubberband, .content-view rubberband,
 .rubberband {
-    background-color: alpha (@theme_selected_bg_color, 0.35);
+    background-color: @theme_selected_bg_color;
     border-color: @theme_selected_bg_color;
-    border-style: solid;
-    border-width: 1px;
+  	border: 1px solid #b8383e;
 }
 
 flowbox flowboxchild {
@@ -131,20 +130,24 @@ spinner:checked:disabled {
     opacity: 0.5; }
 
 entry {
-    min-height: 22px;
-    border: 1px solid;
-    padding: 2px 8px;
-    caret-color: currentColor;
-    border-radius: 3px;
+    padding: 5px;
+    caret-color: @entry_text_color;
     transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    color: #D3DAE3;
-    border-color: #2b2e39;
-    background-color: @theme_bg_color;
-    background-image: linear-gradient(to bottom, @theme_bg_color); }
+
+	background-color: @theme_base_color;
+    border: 1px #3D3D3D solid;
+    /* we use inner-border instead of padding because padding
+     * also applies to the progressbar.
+     */
+    padding: 4px 3px;
+    color: @entry_text_color;
+    }
 entry.search {
-    border-radius: 20px; }
+
+}
 entry image {
-    color: #b6bcc6; }
+    color: #b6bcc6; 
+}
 entry image.left {
     padding-left: 0;
     padding-right: 5px; }
@@ -159,11 +162,9 @@ entry.flat, entry.flat:focus {
     border-radius: 0; }
 entry:focus {
     background-clip: border-box;
-    color: #D3DAE3;
-    border-color: #2b2e39;
-    background-color: @primary_toolbar_entry_bg;
-    background-image: linear-gradient(to bottom, @theme_bg_color);
-    box-shadow: inset 1px 0 @theme_selected_bg_color, inset -1px 0 @theme_selected_bg_color, inset 0 1px @theme_selected_bg_color, inset 0 -1px @theme_selected_bg_color; }
+	background-color: @theme_selected_bg_color;
+	color: @theme_selected_fg_color;
+}
 entry:disabled {
     color: rgba(211, 218, 227, 0.45);
     border-color: rgba(43, 46, 57, 0.55);
@@ -211,6 +212,14 @@ entry.search-missing selection, entry.search-missing selection:focus {
 entry:drop(active):focus, entry:drop(active) {
     border-color: #F08437;
     box-shadow: none; }
+
+entry progress {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+
+    border-width: 1px; 
+}
+
 .osd entry {
     color: #BAC3CF;
     border-color: rgba(26, 28, 34, 0.35);
@@ -228,15 +237,7 @@ entry:drop(active):focus, entry:drop(active) {
 .osd entry selection:focus, .osd entry selection {
     color: @theme_selected_bg_color;
     background-color: #ffffff; }
-entry progress {
-    margin: 0 -6px;
-    border-radius: 0;
-    border-width: 0 0 2px;
-    border-color: @theme_selected_bg_color;
-    border-style: solid;
-    background-image: none;
-    background-color: transparent;
-    box-shadow: none; }
+
 
 treeview entry.flat, treeview entry {
     border-radius: 0;
@@ -909,15 +910,28 @@ searchbar {
     border-width: 0 0 1px;
     padding: 3px; }
 
+
+
+
 actionbar {
     padding: 6px;
     border-top: 1px solid #2b2e39;
     background-color: #313541; }
 
+headerbar {
+	background-color: #000000;
+	background-size: 100% 100%;
+	border: solid;
+    background-image: url("darkelements/tab-top.png");
+    padding-left: 5px;
+    padding-right: 5px
+	border-radius: 0;
+}
+
 headerbar,
 .titlebar:not(headerbar) {
-    min-height: 42px;
-    padding: 0 7px;
+    min-height: 32px;
+    padding: 0 5px;
     border-width: 0 0 1px;
     border-style: solid;
     border-color: #262a33;
@@ -958,7 +972,7 @@ headerbar.selection-mode .selection-menu, .selection-mode.titlebar:not(headerbar
     padding-left: 10px;
     padding-right: 10px; }
 headerbar.selection-mode .selection-menu GtkArrow, .selection-mode.titlebar:not(headerbar) .selection-menu GtkArrow {
-    -GtkArrow-arrow-scaling: 1; }
+    -GtkArrow-arrow-scaling: 0.4; }
 headerbar.selection-mode .selection-menu .arrow, .selection-mode.titlebar:not(headerbar) .selection-menu .arrow {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
 .maximized headerbar.selection-mode,
@@ -1041,7 +1055,7 @@ window.csd > .titlebar:not(headerbar):backdrop {
     border-width: 0 1px;
     border-image: linear-gradient(to bottom, rgba(207, 218, 231, 0) 25%, rgba(207, 218, 231, 0.15) 25%, rgba(207, 218, 231, 0.15) 75%, rgba(207, 218, 231, 0) 75%) 0 1/0 1px stretch; }
 .primary-toolbar separator:backdrop, headerbar separator.titlebutton:backdrop, .titlebar:not(headerbar) separator.titlebutton:backdrop {
-    opacity: 0.6; }
+}
 
 .primary-toolbar entry, headerbar entry {
     color: rgba(207, 218, 231, 0.8);
@@ -1834,18 +1848,19 @@ notebook > header > tabs > tab button.flat:active, notebook > header > tabs > ta
 
 
 scrollbar {
+ -GtkScrollbar-has-backward-stepper: true;
+ -GtkScrollbar-has-forward-stepper: true; 
 
-}
-* {
-    }
-scrollbar.top {
-    border-bottom: 1px solid #2b2e39; }
-scrollbar.bottom {
-    border-top: 1px solid #2b2e39; }
-scrollbar.left {
-    border-right: 1px solid #2b2e39; }
-scrollbar.right {
-    border-left: 1px solid #2b2e39; }
+    background-image: none;
+    border-style: solid;
+    -GtkRange-trough-border: 0;
+    
+    -GtkRange-slider-width: 16px;
+    -GtkRange-stepper-size: 16px;
+
+} 
+
+
 scrollbar button {
 border: 1px solid;
     background-image: url("darkelements/scrollbars/stepper.png") ;
@@ -1870,15 +1885,77 @@ scrollbar.vertical button.down {
 	background-size: 100% 100%;
 	color: #ffffff; 
 }
-scrollbar.vertical button.up {
-    -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); 
+scrollbar.vertical button {
+ 	min-height: 14px;
+	max-height: 14px;
 }
-scrollbar.horizontal button.down {
-    -gtk-icon-source: -gtk-icontheme("pan-right-symbolic"); 
+scrollbar.horizontal button.up {	
+border: 1px solid;
+ background-image: url("darkelements/scrollbars/stepper-left.png"); 
+border-color: #000000;
+	background-size: 100% 100%;
+	color: transparent;
 }
-scrollbar.horizontal button.up {
-    -gtk-icon-source: -gtk-icontheme("pan-left-symbolic"); 
+scrollbar.horizontal button.up:hover {	
+border: 1px solid;
+ background-image: url("darkelements/scrollbars/stepper-left-prelight.png"); 
+border-color: #000000;
+	background-size: 100% 100%;
+	color: transparent;
 }
+scrollbar.horizontal button.down {	
+border: 1px solid;
+ background-image: url("darkelements/scrollbars/stepper-right.png"); 
+border-color: #000000;
+	background-size: 100% 100%;
+	color: transparent;
+} 
+scrollbar.horizontal button.down:hover {	
+border: 1px solid;
+ background-image: url("darkelements/scrollbars/stepper-right-prelight.png"); 
+border-color: #000000;
+	background-size: 100% 100%;
+	color: transparent;
+}
+
+
+
+scrollbar.vertical button.up {	
+ 	border: 1px solid;
+    background-image: url("darkelements/scrollbars/stepper-up.png") ;
+    /*background-color: @theme_base_color;*/
+    border-color: #000000;
+	background-size: 100% 100%;
+	color: transparent;
+
+}	
+
+
+scrollbar.vertical button.up:hover {
+	border: 1px solid;
+    background-image: url("darkelements/scrollbars/stepper-up-prelight.png") ;
+    /*background-color: @theme_base_color;*/
+    border-color: #000000;
+	background-size: 100% 100%;
+	color: transparent;
+}	
+scrollbar.vertical button.down {
+ 	border: 1px solid;
+    background-image: url("darkelements/scrollbars/stepper-down.png") ;
+    /*background-color: @theme_base_color;*/
+    border-color: #000000;
+	background-size: 100% 100%;
+	color: transparent;  
+}
+scrollbar.vertical button.down:hover {
+	border: 1px solid;
+    background-image: url("darkelements/scrollbars/stepper-down-prelight.png") ;
+    /*background-color: @theme_base_color;*/
+    border-color: #000000;
+	background-size: 100% 100%;
+	color: transparent;
+}
+
 scrollbar slider {
     min-width: 16px;
 	max-width: 16px;
@@ -1933,8 +2010,6 @@ scrolledwindow junction {
     border-width: 0;
     box-shadow: none;
 }
-
-
 
 switch {
     font: 1;
