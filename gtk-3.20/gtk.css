@@ -1504,22 +1504,37 @@ treeview.view header.button.dnd:active {
 
 menubar,
 .menubar {
-    -GtkWidget-window-dragging: true;
-    padding: 0px;
-    background-color: #2f343f;
-    color: rgba(207, 218, 231, 0.8); }
+    background-image: url("darkelements/menubar.png");
+    border-style: solid;
+    border-image:url("darkelements/menubar-border.png") 1 0 2 0 / 1px 0 2px 0 stretch;
+    color: @theme_text_color;
+    border-width: 1px 0 1px 0;
+    border-color: transparent;
+    padding:  2px 1px 1px 2px;
+	background-size: 100% 100%;
+    -GtkWidget-window-dragging: false;
+}
 menubar:backdrop,
 .menubar:backdrop {
-    color: rgba(207, 218, 231, 0.5); }
+
+
+}
 menubar > menuitem,
 .menubar > menuitem {
-    padding: 4px 8px;
-    border: solid transparent;
-    border-width: 0; }
+    -GtkArrow-shadow-style:none;
+	padding: 0 6px 0 6px;
+	margin-top: -1px;
+}
 menubar > menuitem:hover,
 .menubar > menuitem:hover {
-    background-color: @theme_selected_bg_color;
-    color: #ffffff; }
+    background-image: url("darkelements/menubar-item.png");
+	border: solid;	
+    border-image: url("darkelements/menubar-item-border.png") 1 2 0 2 / 1px 2px 0 2px stretch stretch;
+    border-width: 1px 2px 0 2px;
+	background-size: 100% 100%;
+	padding: 0 4px 0 4px;
+margin-top: -2px;
+}
 menubar > menuitem:disabled,
 .menubar > menuitem:disabled {
     color: rgba(207, 218, 231, 0.2);
