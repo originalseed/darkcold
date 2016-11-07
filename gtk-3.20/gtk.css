@@ -1543,40 +1543,80 @@ menubar > menuitem:disabled,
 menu,
 .menu {
     background-image: url("darkelements/menu-bg.png"); 
+	border: solid;
     border-image: url("darkelements/menu-border.png") 5 5 5 23 / 5px 5px 5px 23px stretch stretch; 
     border-width: 5px 5px 5px 23px;
     color: @menu_fg_color;
-    padding: 1px;
-    border-style: solid;
-	background-size: 100% 100%;
-	margin:10px;
+	background-size: 100% 100%; 
+
 }
-.csd menu, .csd
-.menu {
-    padding: 4px 0px;
-    border-radius: 2px;
-    border: none; }
+
 menu separator,
 .csd menu separator,
 .menu separator,
 .csd
 .menu separator {
-    margin: 2px 0;
-    background-color: #383C4A; }
+	-GtkWidget-wide-separators: true;
+	-GtkWidget-separator-height: 2px;
+	border:solid;
+    border-image: url("darkelements/line-h.png") 0 0 2 0  stretch ;
+	border-width:  0 0 2px 0;
+}
 menu .separator:not(label),
 .csd menu .separator:not(label),
 .menu .separator:not(label),
 .csd
-.menu .separator:not(label) {
-    color: #383C4A; }
-menu menuitem,
-.menu menuitem {
-       color: @theme_text_color;
+.menu .separator:not(label) { 
+
+}
+
+separator,
+separator:hover,
+separator:backdrop,
+separator:hover:backdrop,
+.separator,
+.separator:hover,
+.separator:backdrop,
+.separator:hover:backdrop {
+	-GtkWidget-wide-separators: true;
+	-GtkWidget-separator-height: 2px;
+	border:solid;
+    border-image: url("darkelements/line-h.png") 0 0 2 0  stretch ;
+	border-width:  0 0 2px 0;
+   
+}
+separator.horizontal,
+separator.horizontal:hover,
+separator.horizontal:backdrop,
+separator.horizontal:hover:backdrop,
+.separator.horizontal,
+.separator.horizontal:hover,
+.separator.horizontal:backdrop,
+.separator.horizontal:hover:backdrop {
+	-GtkWidget-wide-separators: true;
+	-GtkWidget-separator-width: 2px;
+	-GtkWidget-separator-height: 2;
+border:solid;
+    background-image: url("darkelements/line-h.png");
+	background-size: 100% 100%;
+    border-image: url("darkelements/line-h.png") 2 0 0 0 / 2px 0 0 0 stretch ;
+    border-width:2px;
+    padding: 3px 2px;
+    color: alpha(#ffffff, 0.1);
+}
+
+menu menuitem{
+	color: @theme_text_color;
 	border: solid alpha(black, 0);	
-border-width: 2px;
+	border-width: 2px;
     padding: 0;
-background-color: transparent;
-	
+	background-color: transparent;
+}
+
+menuitem,
+.menuitem{
+	background-color: transparent;
+	padding: 1px 4px 0 2px;
 }
 menu menuitem:hover,
 .menu menuitem:hover {
@@ -1590,7 +1630,25 @@ menu menuitem:hover,
 }
 menu menuitem:disabled,
 .menu menuitem:disabled {
-    color: rgba(211, 218, 227, 0.45); }
+    color: rgba(211, 218, 227, 0.45); 
+}
+
+menuitem:prelight,
+.menuitem:prelight { 
+    border: solid;
+    background-image: url("darkelements/menubar-item-active.png");
+    border-image: url("darkelements/menubar-item-border-active.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width: 2px;
+    background-size: 100% 100%;
+    padding: 1px 4px 0 2px;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+
+
+
+
 menu menuitem arrow,
 .menu menuitem arrow {
     min-height: 16px;
