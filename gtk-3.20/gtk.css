@@ -321,9 +321,7 @@ button.text-button.image-button.popup {
     padding-right: 8px;
     padding-left: 8px; }
 button:drop(active), combobox:drop(active) button.combo {
-    color: #F08437;
-    border-color: #F08437;
-    box-shadow: none; }
+}
 button.osd {
     color: #BAC3CF;
     outline-color: rgba(186, 195, 207, 0.3);
@@ -455,6 +453,46 @@ button.destructive-action:disabled {
     background-color: rgba(68, 74, 88, 0.55); }
 button.destructive-action:disabled label, button.destructive-action:disabled {
     color: rgba(211, 218, 227, 0.45); }
+
+combobox arrow {
+  	-gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+  	min-height: 16px;
+	min-width: 16px; 
+}
+combobox button.combo{
+    padding: 3px;
+    color: @theme_text_color;
+	border: solid;
+    background-image: url("darkelements/button-normal.png");
+    border-image: url("darkelements/button-normal-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width:2px;
+	background-size: 100% 100%;
+	background-color: transparent;
+}
+.button:active,
+.button:hover,
+combobox button.combo:hover{
+    /*transition: 50ms ease-in-out;   */
+	border: solid;
+    background-image: url("darkelements/button-hover.png");
+    border-image: url("darkelements/button-hover-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width:2px;
+	background-size: 100% 100%;
+}
+
+.button:insensitive,
+combobox button.combo:insensitive {
+	border: solid;
+    background-image: url("darkelements/column-header.png");
+    border-image: url("darkelements/button-normal-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width:2px;
+    background-color: @insensitive_bg_color;
+    color: @insensitive_fg_color;
+	background-size: 100% 100%;
+	border-width: 2px;
+	border-color:transparent;
+
+}
 .stack-switcher > button {
     outline-offset: -3px; }
 .stack-switcher > button > label {
@@ -553,7 +591,8 @@ button.destructive-action:disabled label, button.destructive-action:disabled {
 .linked:not(.vertical):not(.path-bar) > entry.warning:focus:not(:only-child) + entry,
 .linked:not(.vertical):not(.path-bar) > entry.warning:focus:not(:only-child) + button,
 .linked:not(.vertical):not(.path-bar) > entry.warning:focus:not(:only-child) + combobox > box > button.combo {
-    border-left-color: #2b2e39; }
+
+}
 
 .linked:not(.vertical):not(.path-bar) > entry + entry.error:focus:not(:last-child),
 .linked:not(.vertical):not(.path-bar) > entry + entry.error:focus:last-child {
@@ -621,12 +660,14 @@ button.destructive-action:disabled label, button.destructive-action:disabled {
 
 .linked.vertical > entry + entry:drop(active):not(:last-child),
 .linked.vertical > entry + entry:drop(active):last-child {
-    border-top-color: #2b2e39; }
+
+}
 
 .linked.vertical > entry:drop(active):not(:only-child) + entry,
 .linked.vertical > entry:drop(active):not(:only-child) + button,
 .linked.vertical > entry:drop(active):not(:only-child) + combobox > box > button.combo {
-    border-top-color: #2b2e39; }
+
+}
 
 .linked.vertical > entry + entry.warning:focus:not(:last-child),
 .linked.vertical > entry + entry.warning:focus:last-child {
@@ -635,7 +676,8 @@ button.destructive-action:disabled label, button.destructive-action:disabled {
 .linked.vertical > entry.warning:focus:not(:only-child) + entry,
 .linked.vertical > entry.warning:focus:not(:only-child) + button,
 .linked.vertical > entry.warning:focus:not(:only-child) + combobox > box > button.combo {
-    border-top-color: #2b2e39; }
+
+}
 
 .linked.vertical > entry + entry.error:focus:not(:last-child),
 .linked.vertical > entry + entry.error:focus:last-child {
@@ -644,7 +686,8 @@ button.destructive-action:disabled label, button.destructive-action:disabled {
 .linked.vertical > entry.error:focus:not(:only-child) + entry,
 .linked.vertical > entry.error:focus:not(:only-child) + button,
 .linked.vertical > entry.error:focus:not(:only-child) + combobox > box > button.combo {
-    border-top-color: #2b2e39; }
+
+}
 
 .linked.vertical > button:active + entry,
 .linked.vertical > button:checked + entry {
@@ -3131,18 +3174,28 @@ row:selected button:disabled, .info button:disabled,
     border-color: rgba(255, 255, 255, 0.4); }
 
 tooltip {
-    border-radius: 2px;
-    box-shadow: none; }
+    padding: 1px;
+	border: solid;
+    border-image: url("darkelements/button-hover-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width:2px;
+    background-color: @theme_tooltip_bg_color;
+	background-image: none;
+    color: @theme_tooltip_fg_color;
+}
+
 tooltip.background {
-    background-color: rgba(75, 81, 98, 0.95);
+    background-color: @theme_tooltip_bg_color;;
     background-clip: padding-box; }
 tooltip.background label {
-    padding: 4px; }
+    padding: 4px; 
+}
 tooltip decoration {
-    background-color: transparent; }
+    background-color: transparent; 
+}
 tooltip * {
     background-color: transparent;
-    color: #BAC3CF; }
+    color: @theme_tooltip_fg_color;
+}
 
 colorswatch, colorswatch:drop(active) {
     border-style: none; }
