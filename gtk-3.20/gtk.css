@@ -47,7 +47,7 @@
 
 @define-color theme_tooltip_bg_color #000000;
 @define-color theme_tooltip_fg_color #eeeeee;
-
+@define-color notebook_bg_color #232323;
 
 @define-color button_border #24282a;
 
@@ -142,6 +142,7 @@
 @define-color osd_text_shadow #000000;
 @define-color window_frame #7C7C7C;
 @define-color window_frame_inactive #3E3E3E;
+
 
 * {
     padding: 0;
@@ -252,7 +253,7 @@ tooltip.background.solid-csd decoration,
 /*********************
  * Spinner Animation *
  *********************/
-/* This is could be CPU-intensive */
+/* This could be CPU-intensive */
 
 @keyframes spin {
     to { -gtk-icon-transform: rotate(1turn); }
@@ -629,12 +630,12 @@ entry {
     padding: 4px 3px;
     -GtkEntry-inner-border: 5px;
     -GtkEntry-progress-border: 0;
-    color: @entry_text_colo
+    color: @theme_fg_color;
 }
 
 entry progressbar {
     background-color: @theme_selected_bg_color;
-    color: @theme_selected_fg_color;
+    color: @theme_fg_color;
 
     border-width: 1px;
 }
@@ -1002,25 +1003,28 @@ scale progressbar {
  **********/
 
 frame {
-    border-width: 1px;
-    border-color: @border_color;
     border-style: solid;
-    border-radius: 3px;
-    background-color: @notebook_bg_color;
+    border-color: #3D3D3D;
+	box-shadow:inset 0px 0px 0px 1px #000000;
+    border-width:1px;
     padding: 0;
 }
 
 frame.flat {
-   border-style:none;
+    border-style: solid;
+    border-color: #3D3D3D;
+	box-shadow:inset 0px 0px 0px 1px #000000;
+    border-width:1px;
+    padding: 0;
 }
 
 .sidebar,
 scrolledwindow,
 scrolledwindow.frame {
     border-style: solid;
-    border-color: @border_color;
-    border-width: 1px;
-    border-radius: 2px;
+    border-color: #3D3D3D;
+	box-shadow:inset 0px 0px 0px 1px #000000;
+    border-width:1px;
     padding: 0;
 }
 
@@ -1028,12 +1032,21 @@ scrolledwindow.frame {
 filechooser scrolledwindow,
 scrolledwindow viewport {
     background-color: @theme_bg_color;
+    border-style: solid;
+    border-color: #3D3D3D;
+	box-shadow:inset 0px 0px 0px 1px #000000;
+    border-width:1px;
+    padding: 0;
 }
 
 /* avoid double borders when a viewport is
  * packed into a GtkScrolledWindow */
 scrolledwindow viewport.frame {
-    border-style: none;
+    border-style: solid;
+    border-color: #3D3D3D;
+	box-shadow:inset 0px 0px 0px 1px #000000;
+    border-width:1px;
+    padding: 0;
 }
 
 /***********
@@ -1122,10 +1135,11 @@ combobox entry.combo{
     border-image: url("darkelements/border-passive.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
     border-width:2px;
 	background-size: 100% 100%;
+	color: @theme_fg_color;
 }
 combobox button.combo,
 toolbar.horizontal combobox button.combo {
-    color: @theme_text_color;
+    color: @theme_fg_color;
 	border: solid;
     background-image: url("darkelements/button-normal.png");
     border-image: url("darkelements/button-normal-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
@@ -1816,33 +1830,17 @@ stackswitcher  > button:dir(ltr).text-button.radio:checked:hover:active:last-chi
 
 stackswitcher  > button:dir(ltr).text-button.radio,
 stackswitcher  > button:dir(ltr).text-button.radio:focus  {
-    background-image: -gtk-gradient (linear,
-                      left top,
-                      left bottom,
-                      from (@button_gradient_a),
-                      to (@button_gradient_d));
-    background-color: transparent;
+
 }
 
 stackswitcher  > button:dir(ltr).text-button:hover  {
-    background-color: transparent;
-    background-image: linear-gradient(to bottom,
-                      @button_hover_gradient_a 5%,
-                      @button_hover_gradient_b 95%,
-                      @button_hover_gradient_c);
+
 }
 
 stackswitcher  > button:dir(ltr).text-button:checked,
 stackswitcher  > button:dir(ltr).text-button:checked:focus,
 stackswitcher  > button:dir(ltr).text-button:checked:hover  {
-    background-image: linear-gradient(to bottom,
-                      @button_active_gradient_a,
-                      @button_active_gradient_b 3px,
-                      @button_active_gradient_c 4px,
-                      @button_active_gradient_d 50%,
-                      @button_active_gradient_e 50%,
-                      @button_active_gradient_f);
-    background-color: transparent;
+
 }
 
 /*****************
@@ -1856,12 +1854,12 @@ notebook {
 }
 
 notebook.frame {
-    background-color: @notebook_bg_color;
     background-clip: border-box;
-    border-color: @border_color;
     border-style: solid;
-    border-width: 1px;
-    border-radius: 3px 3px 0px 0px;
+    border-color: #3D3D3D;
+	box-shadow:inset 0px 0px 0px 1px #000000;
+    border-width:1px;
+
 }
 
 /* pavu-control */
@@ -1890,11 +1888,15 @@ dialog.background.solid-csd > box.vertical.dialog-vbox > notebook {
 
 /* view areas, ie. pluma-, caja-tabs */
 paned.horizontal notebook {
-    border-style: none;
+    border-style: solid;
+    border-color: #3D3D3D;
+	box-shadow:inset 0px 0px 0px 1px #000000;
+    border-width:1px;
 }
 
 paned.horizontal notebook header {
-    box-shadow: none;
+	/* where the tabs are */
+    box-shadow: inset 0px 3px 5px 3px #000000;
 }
 /*
 notebook header.top {
@@ -1944,13 +1946,11 @@ notebook header.right {
 */
 /* tabs in view areas, ie. pluma-, caja-tabs */
 paned.horizontal notebook header.top tab {
-    padding: 4px 2px 4px 2px;
-    border-width: 0px 1px 1px 1px;
+
 }
 
 paned.horizontal notebook header.top tab:checked {
-    padding: 4px 2px 4px 2px;
-    border-width: 0px 1px 0px 1px;
+
 }
 
 notebook header {
@@ -1979,13 +1979,7 @@ notebook header.top tab:checked {
 	padding: 3px 4px 1px 4px;
 	border: solid;
 	background-size: 100% 100%;
-	/* use PNG gradient here so we dont have that black line */
-	background-image: -gtk-gradient (linear,
-                                    0 0, 0 1,
-                                    color-stop(0, #0D479F),
-                                    color-stop(0.5, #000000),
-									color-stop(1, #252525)
-						);
+	background-image: url("darkelements/tab-top-active.png");
     border-image: url("darkelements/tab-top-active-border.png") 2 2 0 2 / 2px 2px 0 2px stretch stretch;
     border-width: 2px 2px 0 2px;
 	margin-right: -1px;
@@ -3579,11 +3573,17 @@ label selection:backdrop:disabled {
 treeview {
     -GtkTreeView-vertical-separator: 0;
     -GtkTreeView-expander-size: 13;
+
+}
+
+treeview.view.trough{
+    border: solid;
+    border-width: 1px;
+    border-color:#ff0000;
 }
 
 treeview.dnd {
     border-color: @internal_element_color;
-    border-radius: 2px;
     border-width: 1px;
     border-style: solid;
 }
@@ -3838,10 +3838,7 @@ entry.error:focus,
 .error button:checked,
 .error button:focus,
 .error button:focus:checked {
-    border-image: none;
-    border-color: shade(@border_color, 0.9);
-    border-style: solid;
-    border-width: 1px;
+
 }
 
 infobar:last-child,
@@ -4054,7 +4051,7 @@ popover separator {
 
 .popover.osd spinbutton,
 .popover.osd spinbutton entry {
-    background: transparent;
+
 	color: @theme_base_color;
 }
 
