@@ -1656,7 +1656,7 @@ toolbar.primary-toolbar button:focus:hover {
 	background-size: 100% 100%;ent_d);
 }
 
-/* checkbox & radio*/
+/* checkbox & radiobutton*/
 .check,
 check{
 	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/check1.png"), url("darkelements/check-radio/check1.png"));
@@ -3589,24 +3589,27 @@ treeview.dnd {
 }
 
 /* column-headers */
-treeview header button {
-    color: @internal_element_color;
+treeview.view header,
+treeview header{
+	padding: 2px 4px;
+    background-image: url("darkelements/column-header.png");
+	border: solid;
+    border-image: url("darkelements/column-header-border.png") 1 1 2 1 / 1px 1px 2px 1px stretch stretch;
+    border-width:1px 1px 2px 1px;
+	background-size: 100% 100%;
 }
+
 
 treeview header button,
 treeview header button:disabled,
 treeview header button:hover,
 treeview header button:focus:hover {
-    background-color: @theme_base_color;
-    background-image: -gtk-gradient (linear,
-                      left top,
-                      left bottom,
-                      from (@column_header_button_gradient_a),
-                      color-stop (0.50, @column_header_button_gradient_b),
-                      color-stop (0.50, @column_header_button_gradient_c),
-                      to (@column_header_button_gradient_d));
-    padding: 0 4px;
-    font-weight: normal;
+    padding: 2px 4px;
+	border: solid;
+    background-image: url("darkelements/column-header.png");
+    border-image: url("darkelements/column-header-border.png") 1 1 2 1 / 1px 1px 2px 1px stretch stretch;
+    border-width: 1px 1px 2px 1px;
+	background-size: 100% 100%;
 }
 
 treeview header button:disabled {
@@ -3618,38 +3621,24 @@ treeview header button:focus:hover,
 treeview header button:focus:hover:active,
 treeview header button:hover:active,
 treeview header button:checked,
-treeview header button:checked:hover {
-    color: @internal_element_hover_color;
-}
-
-treeview header button:checked,
-treeview header button:checked:hover,
-treeview header button:checked:hover:focus {
-    background-color: @entry_bg_color;
-    background-image: none;
-}
-
-treeview header button,
-treeview header button:focus,
-treeview header button:checked,
 treeview header button:checked:hover,
 treeview header button:focus:checked,
 treeview header button:focus:hover:active {
-    border-image: none;
-    border-width: 1px;
-    border-radius: 0;
-    border-style: solid;
-    border-color: @column_header_border_top_color @column_header_border_right_color
-                  @column_header_border_bottom_color @column_header_border_left_color;
-
+	padding: 2px 3px 1px 4px;
+	border: solid;
+    background-image: url("darkelements/button-hover.png");
+    border-image: url("darkelements/column-header-hover-border.png") 1 2 2 1 / 1px 2px 2px 1px stretch;
+    border-width: 1px 2px 2px 1px;
+	background-size: 100% 100%;
 }
+
 
 treeview header button:last-child,
 treeview header button:last-child:focus,
 treeview header button:last-child:checked,
 treeview header button:last-child:hover:active,
 treeview header button:last-child:active:focus {
-    border-right: none;
+;
 }
 
 row,
