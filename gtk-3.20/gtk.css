@@ -618,17 +618,18 @@ undershoot.right {
 entry {
     background-color: @theme_base_color;
     border: solid;
-    border-image: url("darkelements/text-entry.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
-    border-width:2px;
+    border-color: #3D3D3D;
+	box-shadow:inset 0px 0px 0px 1px #000000;
+    border-width:1px;
 	background-size: 100% 100%;
-	border-color:transparent;
+	
     /* we use inner-border instead of padding because padding
      * also applies to the progressbar.
      */
     padding: 4px 3px;
     -GtkEntry-inner-border: 5px;
     -GtkEntry-progress-border: 0;
-    color: @entry_text_color;
+    color: @entry_text_colo
 }
 
 entry progressbar {
@@ -1236,8 +1237,18 @@ button:focus {
 }
 
 button:disabled,
-button:checked:disabled {
+button:checked:disabled,
+combobox button.combo:disabled {
+	border: solid;
+    background-image: url("darkelements/column-header.png");
+    border-image: url("darkelements/button-normal-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width:2px;
+    background-color: @insensitive_bg_color;
     color: @insensitive_fg_color;
+	background-size: 100% 100%;
+	border-width: 2px;
+	border-color:transparent;
+
 }
 
 button separator {
@@ -1411,65 +1422,60 @@ button separator {
 
 spinbutton,
 spinbutton:focus {
-    background-color: transparent;
-    padding: 0px;
-    border-width: 1px;
-    border-radius: 3px;
-    border-style: solid;
-    border-color: @spinbutton_border_color;
+
 }
+
+spinbutton entry{
+    background-color: @theme_base_color;
+    border: solid;
+    border-color: #3D3D3D;
+	box-shadow:inset 0px 0px 0px 1px #000000;
+    border-width:1px;
+	background-size: 100% 100%;
+	
+    /* we use inner-border instead of padding because padding
+     * also applies to the progressbar.
+     */
+    padding: 4px 3px;
+    -GtkEntry-inner-border: 5px;
+    -GtkEntry-progress-border: 0;
+    color: @entry_text_colo
+}
+
 
 spinbutton.horizontal > entry,
 spinbutton.horizontal > entry:focus {
-    padding: 0px 10px 0px 3px;
-    box-shadow: none;
-    border-radius: 3px 0px 0px 3px;
-    border-style: none;
-    border-image: none;
+
 }
 
 spinbutton > button,
 spinbutton > button:focus,
 spinbutton > button:focus:active {
-    background-color: transparent;
-    color: @internal_element_color;
-    padding: 6px;
-    border-radius: 0;
-    border-width: 0 0 0 1px;
-    border-style: solid;
-    border-color: @spinbutton_border_color;
-    border-image: none;
+
 }
 
 spinbutton > button:disabled {
-    color: @internal_element_insensitive_color;
-    border-color: @insensitive_border_color;
-    border-image: none;
-    border-radius: 0;
+
 }
 
 spinbutton > button:checked,
 spinbutton > button:focus:checked,
 spinbutton > button:hover {
-    color: @internal_element_hover_color;
+
 }
 
 spinbutton.horizontal > button {
-    border-width: 0 0 0 1px;
+
 }
 
 spinbutton.horizontal > button:last-child {
-    border-radius: 0 3px 3px 0;
+
 }
 
 /*vertical */
 spinbutton.vertical > entry,
 spinbutton.vertical > entry:focus {
-    border-image: none;
-    border-color: @spinbutton_border_color;
-    border-radius: 0px;
-    border-width: 1px 0px 1px 0px;
-    padding: 6px 2px;
+
 }
 
 spinbutton.vertical > button,
@@ -1478,20 +1484,19 @@ spinbutton.vertical > button:focus:active,
 spinbutton.vertical > button:last-child,
 spinbutton.vertical > button:focus:last-child,
 spinbutton.vertical > button:focus:active:last-child {
-    padding: 6px 2px;
-    border-width: 0px;
+
 }
 
 spinbutton.vertical > button,
 spinbutton.vertical > button:focus,
 spinbutton.vertical > button:focus:active {
-    border-radius: 3px 3px 0px 0px;
+
 }
 
 spinbutton.vertical > button:last-child,
 spinbutton.vertical > button:focus:last-child,
 spinbutton.vertical > button:focus:active:last-child {
-    border-radius: 0px 0px 3px 3px;
+
 }
 
 /* linked */
@@ -1650,6 +1655,70 @@ toolbar.primary-toolbar button:focus:hover {
     border-width:2px;
 	background-size: 100% 100%;ent_d);
 }
+
+/* checkbox & radio*/
+.check,
+check{
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/check1.png"), url("darkelements/check-radio/check1.png"));
+	padding-right: 5px;
+	margin-right: 5px;  
+}
+.check:hover,
+check:hover{
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/check3.png"), url("darkelements/check-radio/check3.png"));
+	
+}
+.check:checked,
+check:checked{
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/check2.png"), url("darkelements/check-radio/check2.png"));
+	
+}
+.check:checked:hover,
+check:checked:hover{
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/check4.png"), url("darkelements/check-radio/check4.png"));
+	
+}
+.check:disabled,
+check:disabled{
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/check5.png"), url("darkelements/check-radio/check5.png"));
+	
+}
+.check:checked:disabled,
+check:checked:disabled{
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/check6.png"), url("darkelements/check-radio/check6.png"));
+}
+
+.radio,
+radio{
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option1.png"), url("darkelements/check-radio/option1.png"));
+	
+}
+.radio:hover,
+radio:hover{
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option3.png"), url("darkelements/check-radio/option3.png"));
+	
+}
+.radio:checked,
+radio:checked{
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option2.png"), url("darkelements/check-radio/option.png"));
+	
+}
+.radio:checked:hover,
+radio:checked:hover{
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option4.png"), url("darkelements/check-radio/option4.png"));
+	
+}
+.radio:disabled,
+radio:disabled{
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option5.png"), url("darkelements/check-radio/option5.png"));
+	
+}
+.radio:checked:disabled,
+radio:checked:disabled{
+	-gtk-icon-source: -gtk-scaled(url("darkelements/check-radio/option6.png"), url("darkelements/check-radio/option6.png"));
+}
+
+
 
 /* Stack switcher */
 stackswitcher > button > label,
