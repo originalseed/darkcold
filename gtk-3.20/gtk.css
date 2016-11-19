@@ -1002,21 +1002,11 @@ scale progressbar {
  * Frames *
  **********/
 
-frame {
-    border-style: solid;
-    border-color: #3D3D3D;
-	box-shadow:inset 0px 0px 0px 1px #000000;
-    border-width:1px;
-    padding: 0;
+frame,
+frame.flat {
+	/* lets not do anything here */
 }
 
-frame.flat {
-    border-style: solid;
-    border-color: #3D3D3D;
-	box-shadow:inset 0px 0px 0px 1px #000000;
-    border-width:1px;
-    padding: 0;
-}
 
 .sidebar,
 scrolledwindow,
@@ -1042,11 +1032,7 @@ scrolledwindow viewport {
 /* avoid double borders when a viewport is
  * packed into a GtkScrolledWindow */
 scrolledwindow viewport.frame {
-    border-style: solid;
-    border-color: #3D3D3D;
-	box-shadow:inset 0px 0px 0px 1px #000000;
-    border-width:1px;
-    padding: 0;
+
 }
 
 /***********
