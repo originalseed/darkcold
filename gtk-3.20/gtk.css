@@ -155,8 +155,8 @@
     -GtkHTML-link-color: @link_color;
     -WnckTasklist-fade-overlay-rect: 0;
     outline-color: @focus_border_color;
-    outline-style: dashed;
-    outline-offset: -2px;
+    outline-style: dotted;
+    outline-offset: 2px;
     outline-width: 0px; /* disable ugly focus-line */
     -gtk-outline-radius: 2px;
     -gtk-icon-style: regular; /* disable symbolic icons */
@@ -167,7 +167,7 @@
 /***************
  * Base States *
  ***************/
-
+.background,
 window {
    color: @theme_fg_color;
    background-image: url("darkelements/bg.jpg");
@@ -829,109 +829,113 @@ treeview.view.trough:selected {
  * GtkScale *
  ************/
 
-scale.vertical {
-    min-width: 10px;
-}
 
-scale.horizontal {
-    min-height: 10px;
-}
-
-scale.horizontal trough {
-    border-image: none;
-    border-width:0;
-    background-image: url("darkelements/scale/trough-horizontal.png");
-	background-size: 100% 100%;
-	background-color:transparen;
-}
-
+scale.horizontal trough,
 scale.horizontal.marks-after trough {
-    min-height: 3px;
+    background-image: url("darkelements/scale/trough-horizontal.png");
+	background-size: round auto;
+	background-color: transparent;
 }
 
-scale trough,
-scale.vertical trough {
-    min-width: 3px;
-    margin: 0 6px;
-}
-
-scale trough {
-
-}
-
-scale trough,
-scale trough highlight,
 scale.vertical trough,
-scale trough:disabled {
-    border-image: none;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 1px;
-    background-image: none;
-}
-
-scale trough highlight {
-    border-color: @scale_trough_highlight_border_color;
-    background-color: @scale_trough_highlight_bg_color;
-}
-
-scale trough:disabled {
-    border-color: @scale_trough_insensitive_border_color;
-    background-color: @scale_trough_insensitive_highlight_bg_color;
-}
-
-scale trough highlight:disabled {
-    border-color: @scale_trough_highlight_insensitive_border_color;
-    background-color: @scale_trough_highlight_insensitive_bg_color;
+scale.vertical.marks-after trough {
+    background-image: url("darkelements/scale/trough-vertical.png");
+    background-color: transparent;
 }
 
 scale marks indicator {
-    color: @scale_mark_color;
+	color:transparent;
+	background-color: transparent;
 }
 
+grip {
+	background-color: transparent;
+	background-image: url("darkelements/resize-grip.svg");
+}
 /* this makes marks visible */
-scale.horizontal indicator,
-scale.horizontal.fine-tune indicator {
-    background-image: url("darkelements/scale/slider-horiz.png");
-    border-image: none;
-    border-width:0;
-	background-size: 100% 100%;
-}
-
-scale.vertical indicator,
-scale.vertical.fine-tune indicator {
-    background-image: url("darkelements/scale/slider-vert.png");
-    border-image: none;
-    border-width:0;
-	background-size: 100% 100%;;
-}
+/***********
+ * Sliders *
+ ***********/
 
 scale slider,
-scale slider:hover,
-scale slider:disabled {
-
+scale slider.horizontal,
+scale.scale-has-marks-above slider.horizontal,
+scale.scale-has-marks-below slider.horizontal {
+	background-image: url("darkelements/scale/slider-horiz.png");
+	min-width: 29px;
+	min-height: 15px;
+	background-color: transparent;
+	color:transparent;
 }
 
-scale.horizontal slider {
-    background-image: url("darkelements/scale/slider-horiz.png");
-    border-image: none;
-    border-width:0;
-	background-size: 100% 100%;;
+scale slider.horizontal slider:hover,
+scale.horizontal.marks-after slider:hover {
+	background-image: url("darkelements/scale/slider-horiz-prelight.png");
+	min-width: 29px;
+	min-height: 15px;
+	background-color: transparent;
+	color:transparent;
 }
 
-scale.vertical slider {
-    background-image: url("darkelements/scale/slider-vert.png");
-    border-image: none;
-    border-width:0;
-	background-size: 100% 100%;
+scale slider:disabled,
+scale slider.horizontal:disabled,
+scale.scale-has-marks-above slider.horizontal:disabled,
+scale.scale-has-marks-below slider.horizontal:disabled {
+	background-image: url("darkelements/scale/slider-horiz.png");
+	min-width: 29px;
+	min-height: 15px;
+	background-color: transparent;
+	color:transparent;
+}
+
+scale.vertical slider,
+scale slider.vertical slider,
+scale.scale-has-marks-above slider.vertical,
+scale.scale-has-marks-below slider.vertical {
+	background-image: url("darkelements/scale/slider-vert.png");
+	min-width: 15px;
+	min-height: 29px;
+	background-color: transparent;
+	color:transparent;
+}
+scale.vertical slider:hover,
+scale slider.vertical slider:hover,
+scale.vertical.marks-after slider:hover {
+	background-image: url("darkelements/scale/slider-vert-prelight.png");
+	min-width: 15px;
+	min-height: 29px;
+	background-color: transparent;
+	color:transparent;
+}
+
+scale.vertical slider:disabled,
+scale slider.vertical:disabled,
+scale.scale-has-marks-above slider.vertical:disabled,
+scale.scale-has-marks-below slider.vertical:disabled {
+	background-image: url("darkelements/scale/slider-vert.png");
+	min-width: 15px;
+	min-height: 29px
+	background-color: transparent;
+	color:transparent;
+}
+
+.cursor-handle.top {
+	background-image: url("darkelements/scale/slider-horiz.png");
+	background-color: transparent;
+	color:transparent;
+}
+
+.cursor-handle.bottom {
+	background-image: url("darkelements/scale/slider-horiz.png");
+	background-color: transparent;
+	color:transparent;
 }
 
 scale.horizontal.marks-after slider {
-    background-repeat: no-repeat;
-    min-height: 22px;
-    background-size: 100%;
+    background-color: transparent;
+    color:transparent;
 }
-
+/*
 scale.vertical slider,
 scale.horizontal slider {
     background-size: 100%;
@@ -997,6 +1001,8 @@ scale.vertical.color.marks-after slider {
 scale progressbar {
     background-color: @scale_progressbar_bg_color;
 }
+
+*/
 
 /**********
  * Frames *
@@ -1840,11 +1846,17 @@ notebook {
 }
 
 notebook.frame {
-    background-clip: border-box;
-    border-style: solid;
-    border-color: #3D3D3D;
-	box-shadow:inset 0px 0px 0px 1px #000000;
+     background-image: -gtk-gradient (linear,
+                                     left top, left bottom,
+                                     from (#1C1C1C),
+                                     to (#000000));
+    border-color: #3D3D3D; 
+    border-style:solid;
     border-width:1px;
+    border-radius: 0;
+    background-color:#1C1C1C;
+    padding:0;
+  	background-size: 100% 100%;
 
 }
 
@@ -1855,7 +1867,6 @@ window.background.ssd > box.vertical > notebook:not(.frame),
 window.background.solid-csd > box.vertical > notebook:not(.frame) {
     background-color: @notebook_bg_color;
     background-clip: border-box;
-    border-radius: 3px 3px 0px 0px;
 }
 
 printdialog > box.view.vertical.dialog-vbox > box.vertical > notebook {
@@ -1882,7 +1893,7 @@ paned.horizontal notebook {
 
 paned.horizontal notebook header {
 	/* where the tabs are */
-    box-shadow: inset 0px 3px 5px 3px #000000;
+    /*box-shadow: inset 0px 3px 5px 3px #000000;*/
 }
 /*
 notebook header.top {
@@ -1940,7 +1951,11 @@ paned.horizontal notebook header.top tab:checked {
 }
 
 notebook header {
-	padding-top: 4px;
+    background-color: #000000;
+    background-clip: border-box;
+    border-color: #ff0000;
+    border-style: solid;
+    border-bottom: 1px solid #3D3D3D;
 }
 
 notebook header.top tab {
@@ -2437,6 +2452,7 @@ scrollbar.horizontal .slider:hover {
     border-image: url("darkelements/scrollbars/slider-horiz-active.png") 8 2 8 2 / 8px 2px 8px 2px stretch round;
     border-width: 8px 2px;; 
 }
+
 
 /*********
  * Menus *
@@ -3273,11 +3289,10 @@ toolbar.osd separator {
 .osd progressbar {
     background-color: @osd_fg;
 }
-
+/*
 .osd scale trough {
     border-color: shade (@theme_bg_color, 0.4);
     border-image: none;
-    /* this defines the bg color of the played segment */
     background-color: @osd_scale_trough_bg_color;
 }
 
@@ -3330,7 +3345,7 @@ toolbar.osd separator {
     background-image: none;
     background-color: transparent;
 }
-
+*/
 /* spinbuttons in color selection */
 .osd.popover spinbutton button {
     border-radius: 0px;
@@ -3379,7 +3394,7 @@ progressbar .osd {
 .osd.view {
     background-color: @osd_view_bg;
 }
-
+/**
 .osd scrollbar trough {
     background-color: @osd_scrollbar_trough;
 }
@@ -3405,7 +3420,7 @@ progressbar .osd {
     border-color: @osd_button_fg;
     outline-color: transparent;
 }
-
+*/
 /* used by Documents */
 .osd .page-thumbnail {
     border-style: solid;
@@ -3445,7 +3460,7 @@ switch {
 
 scale progressbar,
 switch:checked {
-    color: @switch_trough_active_color;
+
 }
 
 switch:checked,
@@ -4148,8 +4163,6 @@ stacksidebar.sidebar viewport.frame {
     border-color: @border_color;
     border-style: solid;
     border-width: 0 1px 0 0;
-    /* FIXME radius > 0 doesn't work */
-    border-radius: 0px 0px 0px 3px;
     background-color: @theme_base_color;
 }
 
@@ -4180,7 +4193,6 @@ stack .linked.vertical entry {
     color: @theme_fg_color;
     padding: 10px;
     border-style: none;
-    border-radius: 0 0 4px 4px;
     background-color: rgba(180, 187, 163, 0.7);
     background-image: linear-gradient(to bottom,
                                       rgba(0, 0, 0, 0.2),
@@ -4210,7 +4222,7 @@ calendar.header .app-notification button.titlebutton,
     text-shadow: none;
     -gtk-icon-shadow: 0 1px black;
     outline-color: rgba(238, 238, 236, 0.3);
-    border-radius: 3px;
+
     padding: 0 0px 2px 0px;
 }
 
@@ -4243,7 +4255,7 @@ calendar.header .app-notification.frame button.titlebutton {
     text-shadow: none;
     -gtk-icon-shadow: 0 1px black;
     outline-color: rgba(238, 238, 236, 0.3);
-    border-radius: 3px;
+
 }
 
 .app-notification button:checked,
@@ -4259,7 +4271,7 @@ calendar.header .app-notification.frame button.titlebutton {
     text-shadow: none;
     -gtk-icon-shadow: none;
     outline-color: rgba(238, 238, 236, 0.3);
-    border-radius: 3px;
+
 }
 
 .app-notification button:disabled,
@@ -4274,7 +4286,7 @@ calendar.header .app-notification.frame button.titlebutton {
     box-shadow: none;
     text-shadow: none;
     -gtk-icon-shadow: none;
-    border-radius: 3px;
+
     padding: 0px;
 }
 
@@ -4288,7 +4300,7 @@ calendar.header .app-notification.frame button.titlebutton {
     box-shadow: none;
     text-shadow: none;
     -gtk-icon-shadow: none;
-    border-radius: 3px;
+;
     padding: 0px;
 }
 
