@@ -142,7 +142,7 @@
 @define-color osd_text_shadow #000000;
 @define-color window_frame #7C7C7C;
 @define-color window_frame_inactive #3E3E3E;
-
+@define-color border_color #1ED42D;
 
 * {
     padding: 0;
@@ -1038,7 +1038,10 @@ scrolledwindow viewport {
 /* avoid double borders when a viewport is
  * packed into a GtkScrolledWindow */
 scrolledwindow viewport.frame {
-
+    border: solid;
+    border-image: url("darkelements/border-passive.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width:2px;
+    padding: 0
 }
 
 /***********
@@ -2933,7 +2936,7 @@ toolbar.inline-toolb,
 .sidebar,
 .sidebar .view,
 placessidebar .view {
-    background-color: @sidebar_bg_color;
+    background-color: #ff0000;
 }
 
 .sidebar .frame {
@@ -3021,7 +3024,7 @@ placesview stack frame,
 }
 
 headerbar {
-	/* we need graphics for this */
+	/* kriss: we need graphics for this, its the window header for gtk3 apps without metacity */
 	background-color: #000000;
 	background-size: 100% 100%;
 	border: solid;
@@ -4324,10 +4327,11 @@ button.flat.link.text-button:hover:active {
 
 /* ie. mate-keyboard-properties option window */
 dialog scrolledwindow.frame {
-    border-color: @border_color;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 2px;
+    border: solid;
+    border-image: url("darkelements/border-passive.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width:2px;
+    padding: 0
+
 }
 
 /* credits in GtkAbout windows */
