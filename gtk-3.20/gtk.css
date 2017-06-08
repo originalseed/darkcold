@@ -142,7 +142,7 @@
 @define-color osd_text_shadow #000000;
 @define-color window_frame #7C7C7C;
 @define-color window_frame_inactive #3E3E3E;
-@define-color border_color #1ED42D;
+@define-color border_color #000000;
 
 * {
     padding: 0;
@@ -167,10 +167,10 @@
 /***************
  * Base States *
  ***************/
-.background,
+
 window {
    color: @theme_fg_color;
-   background-image: url("darkelements/bg.jpg");
+   /*background-image: url("darkelements/bg.jpg");*/
    background-repeat: repeat-x;
    padding:0;
    background-color: @theme_bg_color;
@@ -2932,11 +2932,11 @@ toolbar.inline-toolb,
 /***********
  * Sidebar *
  ***********/
-
+/* where the drives are listed */
 .sidebar,
 .sidebar .view,
 placessidebar .view {
-    background-color: #ff0000;
+    background-color: #060A0F;
 }
 
 .sidebar .frame {
