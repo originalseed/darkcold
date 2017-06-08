@@ -748,12 +748,18 @@ progressbar.horizontal progress {
     background-image: url("darkelements/progressbar-horiz.png");
 }
 
-progressbar.vertical trough,
+progressbar.vertical trough{
+	min-width: 16px;
+    border: solid;
+    border-image: url("darkelements/progressbar-border-vertical.png") 1 2 2 1 / 1px 2px 2px 1px round stretch;
+    border-width: 1px 2px 2px 1px;
+	background-size: 100% 100%;
+}
 progressbar.vertical progress {
     min-width: 16px;
-    border-radius: 3px;
+    background-image: url("darkelements/progressbar-vert.png"); 
 }
-
+/*
 progressbar progress.left {
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
@@ -773,7 +779,7 @@ progressbar progress.bottom {
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
 }
-
+*/
 treeview.view.progressbar,
 treeview.view.progressbar:hover,
 progressbar.horizontal progress,
