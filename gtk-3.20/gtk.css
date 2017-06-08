@@ -142,7 +142,7 @@
 @define-color osd_text_shadow #000000;
 @define-color window_frame #7C7C7C;
 @define-color window_frame_inactive #3E3E3E;
-@define-color border_color #000000;
+@define-color border_color #3D3D3D;
 
 * {
     padding: 0;
@@ -167,7 +167,7 @@
 /***************
  * Base States *
  ***************/
-
+.background,
 window {
    color: @theme_fg_color;
    /*background-image: url("darkelements/bg.jpg");*/
@@ -290,7 +290,6 @@ button spinner:checked {
                       shade(@theme_base_color, 0.9));
     background-color: @theme_base_color;
     border-color: @border_color;
-    border-radius: 3px;
     border-width: 1px;
     border-style: solid;
 }
@@ -619,7 +618,7 @@ undershoot.right {
 entry {
     background-color: @theme_base_color;
     border: solid;
-    border-color: #3D3D3D;
+    border-color: @border_color;
 	box-shadow:inset 0px 0px 0px 1px #000000;
     border-width:1px;
 	background-size: 100% 100%;
@@ -721,10 +720,7 @@ GtkColorEditor colorswatch.color-dark:hover {
  ****************/
 
 progressbar {
-	border: solid;
-    background-image: url("darkelements/progressbar-horiz.png"); 
-    border-image: url("darkelements/progressbar-border.png") 1 1 1 1 / 1px 1px 1px 1px round stretch;
-    border-width: 1px;
+    background-color:transparent;
 	background-size: 100% 100%;
 }
 
@@ -737,18 +733,32 @@ progressbar.vertical {
 }
 
 /* progress component */
-progressbar.horizontal trough,
+progressbar.horizontal trough {
+	min-height: 16px;
+	border: solid ;
+	border-image: url("darkelements/trough-progressbar-horiz.png") 1 1 1 1 / 1px 1px 1px 1px stretch stretch;
+    border-width: 1px;
+    background-color:@progressbar_background;
+    padding: 2px 1px;
+}
 progressbar.horizontal progress {
     min-height: 16px;
-    border-radius: 3px;
+    border-radius: 0;
+    background-image: url("darkelements/progressbar-horiz.png");
 }
 
-progressbar.vertical trough,
+progressbar.vertical trough{
+	min-width: 16px;
+    border: solid;
+    border-image: url("darkelements/progressbar-border-vertical.png") 1 2 2 1 / 1px 2px 2px 1px round stretch;
+    border-width: 1px 2px 2px 1px;
+	background-size: 100% 100%;
+}
 progressbar.vertical progress {
     min-width: 16px;
-    border-radius: 3px;
+    background-image: url("darkelements/progressbar-vert.png"); 
 }
-
+/*
 progressbar progress.left {
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
@@ -768,7 +778,7 @@ progressbar progress.bottom {
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
 }
-
+*/
 treeview.view.progressbar,
 treeview.view.progressbar:hover,
 progressbar.horizontal progress,
@@ -1059,6 +1069,14 @@ button {
 	background-color: transparent;
 }
 
+button:disabled,
+combobox button.combo:disabled,
+toolbar combobox button.combo:disabled {
+    background-image: none;
+    background-color: transparent;
+    color: @insensitive_fg_color;
+}
+
 button,
 button.menuitem.menubar,
 .titlebar .linked.raised button,
@@ -1263,7 +1281,60 @@ combobox button.combo:disabled {
 button separator {
     /*color: shade(@internal_element_color, 1.30);*/
 }
+menuitem separator,
+.menuitem .separator {
+	-GtkWidget-wide-separators: true;
+	-GtkWidget-separator-height: 2px;
+	border:solid;
+    border-image: url("darkelements/line-h.png") 0 0 2 0  stretch ;
+	border-width:  0 0 2px 0;
+}
 
+separator,
+separator:hover,
+separator:backdrop,
+separator:hover:backdrop,
+.separator,
+.separator:hover,
+.separator:backdrop,
+.separator:hover:backdrop {
+	-GtkWidget-wide-separators: true;
+	-GtkWidget-separator-height: 2px;
+	border:solid;
+    border-image: url("darkelements/line-h.png") 0 0 2 0  stretch ;
+	border-width:  0 0 2px 0;
+   
+}
+separator.horizontal,
+separator.horizontal:hover,
+separator.horizontal:backdrop,
+separator.horizontal:hover:backdrop,
+.separator.horizontal,
+.separator.horizontal:hover,
+.separator.horizontal:backdrop,
+.separator.horizontal:hover:backdrop {
+	-GtkWidget-wide-separators: true;
+border:solid;
+    background-image: url("darkelements/line-h.png");
+	background-size: 100% 100%;
+    border-image: url("darkelements/line-h.png") 2 0 0 0 / 2px 0 0 0 stretch ;
+    border-width:2px;
+ 
+    color: alpha(#ffffff, 0.1);
+}
+.primary-toolbar .separator,
+.separator.vertical,
+.separator.vertical:hover,
+.separator.vertical:backdrop,
+.separator.vertical:hover:backdrop {
+	-GtkWidget-wide-separators: true;
+border:solid;
+    background-image: url("darkelements/line-v.png");
+	background-size: 100% 100%;
+    border-image: url("darkelements/line-v.png") 0 2 0 0 / 0 2px 0 0 stretch ;
+    border-width:2px;
+    color: alpha(#ffffff, 0.1);
+}
 /* linked buttons and entries */
 
 /* Middle button */
@@ -1809,7 +1880,7 @@ stackswitcher  > button:dir(ltr).text-button.radio:checked:hover:first-child,
 stackswitcher  > button:dir(ltr).text-button.radio:checked:hover:active:first-child {
     border-width: 1px 0px 1px 1px;
     border-image-width: 3px 0 4px 3px;
-    border-radius: 3px 0px 0px 3px;
+    border-radius: 0;
 }
 
 stackswitcher  > button:dir(ltr).text-button.radio:last-child,
@@ -1820,7 +1891,7 @@ stackswitcher  > button:dir(ltr).text-button.radio:checked:hover:last-child,
 stackswitcher  > button:dir(ltr).text-button.radio:checked:hover:active:last-child {
     border-width: 1px 1px 1px 0px;
     border-image-width: 3px 3px 4px 0;
-    border-radius: 0px 3px 3px 0px;
+    border-radius: 0
 }
 
 stackswitcher  > button:dir(ltr).text-button.radio,
@@ -1897,6 +1968,25 @@ paned.horizontal notebook {
 paned.horizontal notebook header {
 	/* where the tabs are */
     /*box-shadow: inset 0px 3px 5px 3px #000000;*/
+}
+paned separator .vertical,
+paned separator .vertical:prelight,
+paned separator .vertical:selected{
+	background-color:transparent;
+	background-image:url("darkelements/handle-h.png");
+	background-position:50% 50%;
+	background-size: 23px 6px;
+	background-repeat:no-repeat;
+}
+
+paned separator .horizontal,
+paned separator .horizontal:prelight,
+paned separator .horizontal:selected{
+	background-color:transparent;
+	background-image:url("darkelements/handle-v.png");
+	background-position:50% 50%;
+	background-size: 6px 23px ;
+	background-repeat:no-repeat;
 }
 /*
 notebook header.top {
@@ -2932,11 +3022,11 @@ toolbar.inline-toolb,
 /***********
  * Sidebar *
  ***********/
-/* where the drives are listed */
+
 .sidebar,
 .sidebar .view,
 placessidebar .view {
-    background-color: #060A0F;
+    background-color: #ff0000;
 }
 
 .sidebar .frame {
@@ -3697,10 +3787,9 @@ row:hover:focus,
 expander {
     border-style: solid;
     border-width: 1px;
-    border-radius: 2px;
     border-color: @border_color;
     color: @theme_fg_color;
-    background-color: shade(@theme_bg_color, 1.02);
+    background-color: @theme_base_color;
 }
 
 treeview.view.expander {
@@ -3773,28 +3862,25 @@ expander toolbar.inline-toolbar {
 
 /* Calendars */
 calendar {
-    padding: 1px;
+    padding: 2px;
     border-style:none;
 }
 
 calendar.view {
-    border-radius: 3px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(162,158,155);
+    border: solid;
+    border-image: url("darkelements/border-passive.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width:2px;
+    padding: 0
 }
 
 calendar.header {
-    border-radius: 3px 3px 0px 0px;
-    background-image: -gtk-gradient (linear,
-                      left top,
-                      left bottom,
-                      from (shade (@theme_bg_color, 1.04)),
-                      to (shade (@theme_bg_color, 0.89)));
-    border-width: 0;
+	background-color:#252525;
 }
 
-calendar button,
+calendar button{
+	background-image: url("darkelements/button-normal.png");
+	background-size: 100% 100%;
+}
 calendar button:disabled {
     background-image: none;
     background-color: transparent;
