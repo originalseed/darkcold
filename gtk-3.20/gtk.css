@@ -284,14 +284,7 @@ button spinner:checked {
  *****************/
 
 .floating-bar {
-    background-image: linear-gradient(
-                      to bottom,
-                      @theme_base_color 20%,
-                      shade(@theme_base_color, 0.9));
-    background-color: @theme_base_color;
-    border-color: @border_color;
-    border-width: 1px;
-    border-style: solid;
+   
 }
 
 .floating-bar.top {
@@ -322,13 +315,24 @@ button spinner:checked {
 
 }
 
+content-view.view.rubberband,
+.content-view.view.rubberband,
+view.rubberband,
 .view.rubberband,
-.rubberband,
-view rubberband,
-rubberband {
-    background-color: @theme_selected_bg_color;
+rubberband,
+.rubberband {
+    background-color: alpha(@theme_selected_bg_color, 0.35);
+    background-image: linear-gradient(to bottom,
+                                      alpha (@theme_selected_bg_color, 0.35),
+                                      alpha (@theme_selected_bg_color, 0.35));
     border-color: @theme_selected_bg_color;
-  	border: 1px solid #b8383e;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+}
+
+expander {
+    -gtk-icon-style: regular;
 }
 
 statusbar label,
