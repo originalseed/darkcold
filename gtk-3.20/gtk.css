@@ -170,7 +170,7 @@
 .background,
 window {
    color: @theme_fg_color;
-   background-image: url("darkelements/bg.jpg");
+   /*background-image: url("darkelements/bg.jpg");*/
    background-repeat: repeat-x;
    padding:0;
    background-color: @theme_bg_color;
@@ -729,7 +729,7 @@ progressbar {
 }
 
 progressbar.horizontal {
-    min-height: 16px;  
+    min-height: 16px;
 }
 
 progressbar.vertical {
