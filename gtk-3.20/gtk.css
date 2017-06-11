@@ -1,3 +1,12 @@
+/**
+ * DarkCold GTK Theme
+ * @author originalseed
+ * 
+ * For dev
+ * sudo apt-get install gtk-3-examples
+ * run gtk3-demo, gtk3-icon-browser, gtk3-widget-factory
+ */
+
 @define-color insensitive_base_color @theme_bg_color;
 @define-color theme_unfocused_fg_color #D3DAE3;
 @define-color theme_unfocused_text_color #D3DAE3;
@@ -1076,9 +1085,15 @@ button {
 button:disabled,
 combobox button.combo:disabled,
 toolbar combobox button.combo:disabled {
-    background-image: none;
-    background-color: transparent;
+border: solid;
+    background-image: url("darkelements/column-header.png");
+    border-image: url("darkelements/button-normal-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width:2px;
+    background-color: @insensitive_bg_color;
     color: @insensitive_fg_color;
+	background-size: 100% 100%;
+	border-width: 2px;
+	border-color:transparent;
 }
 
 button,
@@ -1620,15 +1635,13 @@ spinbutton.vertical > button:focus:active:last-child {
 button,
 spinbutton button,
 combobox button.combo,
-toolbar button.raised,
+toolbar button,
 toolbar button,
 toolbar .raised button,
-toolbar button.raised:focus,
-toolbar .raised button:focus,
 toolbar combobox button.combo,
-toolbar combobox button.combo:focus,
+toolbar combobox button.combo,
 toolbar.primary-toolbar combobox button.combo,
-.titlebar .titlebutton:hover,
+.titlebar .titlebutton,
 colorchooser #add-color-button {
     color: @theme_text_color;
 	border: solid;
@@ -1662,7 +1675,8 @@ toolbar.primary-toolbar button:hover:active,
 toolbar.primary-toolbar button:focus:active,
 toolbar.primary-toolbar button:focus:hover:active,
 toolbar.inline-toolbar button:checked,
-toolbar.inline-toolbar button:hover:active {
+toolbar.inline-toolbar button:hover:active,
+.titlebar .titlebutton:hover {
 	border: solid;
     background-image: url("darkelements/button-hover.png");
     border-image: url("darkelements/button-hover-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
@@ -3117,16 +3131,6 @@ placesview stack frame,
     border-style: none;
 }
 
-headerbar {
-	/* kriss: we need graphics for this, its the window header for gtk3 apps without metacity */
-	background-color: #000000;
-	background-size: 100% 100%;
-	border: solid;
-    background-image: url("darkelements/tab-top.png");
-    padding-left: 5px;
-    padding-right: 5px
-	border-radius: 0;
-}
 
 /*******
  * OSD *
@@ -3992,6 +3996,16 @@ infobar:last-child,
 /************
  * Titlebar *
  ************/
+headerbar {
+	/* kriss: we need graphics for this, its the window header for gtk3 apps without metacity */
+	background-color: #000000;
+	background-size: 100% 100%;
+	border: solid;
+    background-image: url("darkelements/tab-top.png");
+    padding-left: 5px;
+    padding-right: 5px
+	border-radius: 0;
+}
 
 headerbar,
 .titlebar {
@@ -4029,8 +4043,7 @@ headerbar .title,
 
 headerbar button.titlebutton,
 .titlebar button.titlebutton {
-    background: none;
-    border-image: none;
+
 }
 
 /* workaround to avoid unwanted black frames if switching compositor on/off */
