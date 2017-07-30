@@ -1436,7 +1436,7 @@ border:solid;
     border-width: 0px 1px 0px 1px;
     padding: 5px 5px;
 }
-/*
+*/
 /* top button 
 .linked.vertical button.image-button:first-child,
 .linked.vertical button.image-button:hover:first-child,
@@ -4196,7 +4196,7 @@ popover button.default.text-button.suggested-action:hover {
     border-width: 2px;
     border-radius: 3px;
 }
-/*
+*/
 
 /************
  * GtkStack *
