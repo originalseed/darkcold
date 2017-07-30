@@ -1755,7 +1755,7 @@ toolbar.primary-toolbar button:focus:hover {
     background-image: url("darkelements/button-hover.png");
     border-image: url("darkelements/button-hover-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
     border-width:2px;
-	background-size: 100% 100%;ent_d);
+	background-size: 100% 100%;
 }
 
 /* checkbox & radiobutton*/
