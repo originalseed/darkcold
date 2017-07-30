@@ -1894,7 +1894,7 @@ paned.horizontal notebook header {
     /*box-shadow: inset 0px 3px 5px 3px #000000;*/
 }
 paned separator .vertical,
-paned separator .vertical:prelight,
+paned separator .vertical:hover,
 paned separator .vertical:selected{
 	background-color:transparent;
 	background-image:url("darkelements/handle-h.png");
@@ -1904,7 +1904,7 @@ paned separator .vertical:selected{
 }
 
 paned separator .horizontal,
-paned separator .horizontal:prelight,
+paned separator .horizontal:hover,
 paned separator .horizontal:selected{
 	background-color:transparent;
 	background-image:url("darkelements/handle-v.png");
@@ -2648,8 +2648,8 @@ menu menuitem:disabled,
 	border-color: transparent;
 }
 /*
-menuitem:prelight,
-.menuitem:prelight { 
+menuitem:hover,
+.menuitem:hover {
     border: solid;
     background-image: url("darkelements/menubar-item-active.png");
     border-image: url("darkelements/menubar-item-border-active.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
