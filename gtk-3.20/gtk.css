@@ -856,7 +856,8 @@ treeview.view.trough:selected {
 scale.horizontal trough,
 scale.horizontal.marks-after trough {
     background-image: url("darkelements/scale/trough-horizontal.png");
-	background-size: round auto;
+	background-size: auto;
+	background-repeat: round;
 	background-color: transparent;
 }
 
