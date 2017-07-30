@@ -4010,7 +4010,7 @@ popover.background {
   background-color: @theme_bg_color;
   box-shadow: 0 1px 5px #000000;
   text-shadow: none;
-  icon-shadow: none;
+  -gtk-icon-shadow: none;
 }
 
 .popover {
@@ -4022,7 +4022,7 @@ popover.background {
   background-color: @theme_bg_color;
   box-shadow: 0 1px 5px #000000;
   text-shadow: none;
-  icon-shadow: none; 
+  -gtk-icon-shadow: none;
 }
 .popover > .list, 
 .popover > .view,
@@ -4062,7 +4062,7 @@ popover.background {
 /**
 .popover.osd .button {
       text-shadow: 0 -1px @osd_text_shadow;
-      icon-shadow: 0 -1px @osd_text_shadow; 
+      -gtk-icon-shadow: 0 -1px @osd_text_shadow;
 }
 .popover.osd .button:active,
 .popover.osd .button:checked {
