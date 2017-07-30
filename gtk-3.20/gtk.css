@@ -2367,7 +2367,7 @@ scrollbar.vertical button.up,
 scrollbar.vertical .button.up {
     border: 1px solid;
     background-image: url("darkelements/scrollbars/stepper-up.png") ;
-    border-color: #transparent;
+    border-color: transparent;
 	background-size: 100% 100%;
 	color: transparent;
 }
