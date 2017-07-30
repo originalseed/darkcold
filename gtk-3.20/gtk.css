@@ -2346,7 +2346,7 @@ scrollbar.horizontal trough {
 }
 
 scrollbar.vertical trough {
-	max-width: 16px;
+	min-width: 16px;
 	border: solid;
     border-image: url("darkelements/scrollbars/trough-scrollbar-vert.png") 0 16 0 0 / 0 16px 0 0 stretch stretch;
 	border-style: solid;
