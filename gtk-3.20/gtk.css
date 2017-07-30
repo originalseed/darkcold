@@ -937,7 +937,7 @@ scale.scale-has-marks-above slider.vertical:disabled,
 scale.scale-has-marks-below slider.vertical:disabled {
 	background-image: url("darkelements/scale/slider-vert.png");
 	min-width: 15px;
-	min-height: 29px
+	min-height: 29px;
 	background-color: transparent;
 	color:transparent;
 }
@@ -2615,7 +2615,7 @@ menuitem,
 .menuitem{
 	background-color: transparent;
 	border-width: 2px;
-	border: solid
+	border: solid;
 	border-color: transparent;
 	padding: 2px;
 }
@@ -3903,7 +3903,7 @@ headerbar {
 	border: solid;
     background-image: url("darkelements/tab-top.png");
     padding-left: 5px;
-    padding-right: 5px
+    padding-right: 5px;
 	border-radius: 0;
 }
 
