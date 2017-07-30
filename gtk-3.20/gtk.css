@@ -3466,8 +3466,8 @@ switch {
 
 switch {
     background-image: url("darkelements/switch/switcher-off.png");
-    width: 74px;
-    height: 24px;
+    min-width: 74px;
+    min-height: 24px;
 }
 
 scale progressbar{
@@ -3477,8 +3477,8 @@ scale progressbar{
 switch:checked,
 switch:backdrop:checked {
     background-image: url("darkelements/switch/switcher-on.png");
-	width: 74px;
-    height: 24px;
+    min-width: 74px;
+    min-height: 24px;
 }
 
 switch:disabled,
