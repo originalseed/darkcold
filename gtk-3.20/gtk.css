@@ -401,8 +401,8 @@ separator:hover,
 }
 
 button separator {
-    -GtkWidget-separator-width: 2px;
-	-GtkWidget-separator-height: 2;
+    min-width: 2px;
+    min-height: 2px;
 	border:solid;
     background-image: url("darkelements/line-v.png");
 	background-size: 100% 100%;
@@ -1303,8 +1303,7 @@ button separator {
 }
 menuitem separator,
 .menuitem .separator {
-	-GtkWidget-wide-separators: true;
-	-GtkWidget-separator-height: 2px;
+	min-height: 2px;
 	border:solid;
     border-image: url("darkelements/line-h.png") 0 0 2 0  stretch ;
 	border-width:  0 0 2px 0;
@@ -1318,8 +1317,7 @@ separator:hover:backdrop,
 .separator:hover,
 .separator:backdrop,
 .separator:hover:backdrop {
-	-GtkWidget-wide-separators: true;
-	-GtkWidget-separator-height: 2px;
+	min-height: 2px;
 	border:solid;
     border-image: url("darkelements/line-h.png") 0 0 2 0  stretch ;
 	border-width:  0 0 2px 0;
@@ -1333,7 +1331,6 @@ separator.horizontal:hover:backdrop,
 .separator.horizontal:hover,
 .separator.horizontal:backdrop,
 .separator.horizontal:hover:backdrop {
-	-GtkWidget-wide-separators: true;
 border:solid;
     background-image: url("darkelements/line-h.png");
 	background-size: 100% 100%;
@@ -1347,7 +1344,6 @@ border:solid;
 .separator.vertical:hover,
 .separator.vertical:backdrop,
 .separator.vertical:hover:backdrop {
-	-GtkWidget-wide-separators: true;
 border:solid;
     background-image: url("darkelements/line-v.png");
 	background-size: 100% 100%;
