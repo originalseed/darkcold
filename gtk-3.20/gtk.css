@@ -856,7 +856,8 @@ treeview.view.trough:selected {
 scale.horizontal trough,
 scale.horizontal.marks-after trough {
     background-image: url("darkelements/scale/trough-horizontal.png");
-	background-size: round auto;
+	background-size: auto;
+	background-repeat: round;
 	background-color: transparent;
 }
 
@@ -937,7 +938,7 @@ scale.scale-has-marks-above slider.vertical:disabled,
 scale.scale-has-marks-below slider.vertical:disabled {
 	background-image: url("darkelements/scale/slider-vert.png");
 	min-width: 15px;
-	min-height: 29px
+	min-height: 29px;
 	background-color: transparent;
 	color:transparent;
 }
@@ -1436,7 +1437,7 @@ border:solid;
     border-width: 0px 1px 0px 1px;
     padding: 5px 5px;
 }
-/*
+*/
 /* top button 
 .linked.vertical button.image-button:first-child,
 .linked.vertical button.image-button:hover:first-child,
@@ -1755,7 +1756,7 @@ toolbar.primary-toolbar button:focus:hover {
     background-image: url("darkelements/button-hover.png");
     border-image: url("darkelements/button-hover-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
     border-width:2px;
-	background-size: 100% 100%;ent_d);
+	background-size: 100% 100%;
 }
 
 /* checkbox & radiobutton*/
@@ -1893,7 +1894,7 @@ paned.horizontal notebook header {
     /*box-shadow: inset 0px 3px 5px 3px #000000;*/
 }
 paned separator .vertical,
-paned separator .vertical:prelight,
+paned separator .vertical:hover,
 paned separator .vertical:selected{
 	background-color:transparent;
 	background-image:url("darkelements/handle-h.png");
@@ -1903,7 +1904,7 @@ paned separator .vertical:selected{
 }
 
 paned separator .horizontal,
-paned separator .horizontal:prelight,
+paned separator .horizontal:hover,
 paned separator .horizontal:selected{
 	background-color:transparent;
 	background-image:url("darkelements/handle-v.png");
@@ -2345,7 +2346,7 @@ scrollbar.horizontal trough {
 }
 
 scrollbar.vertical trough {
-	max-width: 16px;
+	min-width: 16px;
 	border: solid;
     border-image: url("darkelements/scrollbars/trough-scrollbar-vert.png") 0 16 0 0 / 0 16px 0 0 stretch stretch;
 	border-style: solid;
@@ -2366,7 +2367,7 @@ scrollbar.vertical button.up,
 scrollbar.vertical .button.up {
     border: 1px solid;
     background-image: url("darkelements/scrollbars/stepper-up.png") ;
-    border-color: #transparent;
+    border-color: transparent;
 	background-size: 100% 100%;
 	color: transparent;
 }
@@ -2615,7 +2616,7 @@ menuitem,
 .menuitem{
 	background-color: transparent;
 	border-width: 2px;
-	border: solid
+	border: solid;
 	border-color: transparent;
 	padding: 2px;
 }
@@ -2647,8 +2648,8 @@ menu menuitem:disabled,
 	border-color: transparent;
 }
 /*
-menuitem:prelight,
-.menuitem:prelight { 
+menuitem:hover,
+.menuitem:hover {
     border: solid;
     background-image: url("darkelements/menubar-item-active.png");
     border-image: url("darkelements/menubar-item-border-active.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
@@ -3465,8 +3466,8 @@ switch {
 
 switch {
     background-image: url("darkelements/switch/switcher-off.png");
-    width: 74px;
-    height: 24px;
+    min-width: 74px;
+    min-height: 24px;
 }
 
 scale progressbar{
@@ -3476,8 +3477,8 @@ scale progressbar{
 switch:checked,
 switch:backdrop:checked {
     background-image: url("darkelements/switch/switcher-on.png");
-	width: 74px;
-    height: 24px;
+    min-width: 74px;
+    min-height: 24px;
 }
 
 switch:disabled,
@@ -3903,7 +3904,7 @@ headerbar {
 	border: solid;
     background-image: url("darkelements/tab-top.png");
     padding-left: 5px;
-    padding-right: 5px
+    padding-right: 5px;
 	border-radius: 0;
 }
 
@@ -4010,7 +4011,7 @@ popover.background {
   background-color: @theme_bg_color;
   box-shadow: 0 1px 5px #000000;
   text-shadow: none;
-  icon-shadow: none;
+  -gtk-icon-shadow: none;
 }
 
 .popover {
@@ -4022,7 +4023,7 @@ popover.background {
   background-color: @theme_bg_color;
   box-shadow: 0 1px 5px #000000;
   text-shadow: none;
-  icon-shadow: none; 
+  -gtk-icon-shadow: none;
 }
 .popover > .list, 
 .popover > .view,
@@ -4062,7 +4063,7 @@ popover.background {
 /**
 .popover.osd .button {
       text-shadow: 0 -1px @osd_text_shadow;
-      icon-shadow: 0 -1px @osd_text_shadow; 
+      -gtk-icon-shadow: 0 -1px @osd_text_shadow;
 }
 .popover.osd .button:active,
 .popover.osd .button:checked {
@@ -4196,7 +4197,7 @@ popover button.default.text-button.suggested-action:hover {
     border-width: 2px;
     border-radius: 3px;
 }
-/*
+*/
 
 /************
  * GtkStack *
