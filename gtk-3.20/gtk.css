@@ -1966,7 +1966,7 @@ paned.horizontal notebook header.top tab:checked {
 notebook header {
     background-color: #000000;
     background-clip: border-box;
-    border-color: #ff0000;
+    border-color: #060A0F;
     border-style: solid;
     border-bottom: 1px solid #3D3D3D;
 }
@@ -2943,7 +2943,7 @@ toolbar.inline-toolb,
 .sidebar,
 .sidebar .view,
 placessidebar .view {
-    background-color: #ff0000;
+    background-color: #060A0F;
 }
 
 .sidebar .frame {
@@ -3578,7 +3578,7 @@ treeview {
 treeview.view.trough{
     border: solid;
     border-width: 1px;
-    border-color:#ff0000;
+    border-color: #060A0F;
 }
 
 treeview.dnd {
