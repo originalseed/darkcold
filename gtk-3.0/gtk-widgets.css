@@ -48,7 +48,87 @@
     -GtkWindow-resize-grip-default: false;
 
 }
+/**
+ * GTK 3.20
+ */
+.background{
+	background-color: @theme_bg_color;
+	color: @theme_fg_color;
+}
 
+textview border {
+  background-color: #fafbfb; }
+
+rubberband, flowbox rubberband, treeview.view rubberband, .content-view rubberband,
+.rubberband {
+  border: 1px solid #b8383e;
+  background-color: rgba(184, 56, 62, 0.2); 
+}
+
+flowbox flowboxchild {
+  padding: 3px;
+  border-radius: 2px; 
+}
+flowbox flowboxchild:selected {
+	outline-offset: -2px; 
+}
+assistant .sidebar {
+  background-color: #ffffff;
+  border-top: 1px solid #dcdfe3; }
+
+assistant.csd .sidebar {
+  border-top-style: none; }
+
+assistant .sidebar label {
+  padding: 6px 12px; }
+
+assistant .sidebar label.highlight {
+  background-color: #cc575d;
+color: #ffffff; }
+
+spinbutton:drop(active) {
+  box-shadow: none; }
+
+spinbutton button:active {
+  color: #ffffff; }
+
+spinbutton:disabled {
+  color: rgba(92, 97, 108, 0.55); }
+
+spinbutton:not(.vertical) entry {
+  min-width: 28px; }
+
+spinbutton:not(.vertical):dir(ltr) entry,
+spinbutton:not(.vertical):dir(rtl) button.up {
+  border-radius: 3px 0 0 3px; }
+
+spinbutton:not(.vertical) > button + button {
+  border-left-style: none; }
+
+spinbutton:not(.vertical) > button:hover:not(:active),
+spinbutton:not(.vertical) > button:hover + button {
+  box-shadow: inset 1px 0 #cfd6e6; }
+
+spinbutton:not(.vertical) > button:first-child:hover:not(:active),
+spinbutton:not(.vertical) > button.up:dir(rtl):hover:not(:active),
+spinbutton:not(.vertical) > entry + button:not(:active):hover {
+  box-shadow: none; }
+
+spinbutton:not(.vertical) > entry:focus + button {
+  border-left-color: #cc575d; }
+
+spinbutton:not(.vertical) > entry:drop(active) + button {
+  border-left-color: #F08437; }
+
+combobox arrow {
+  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+  min-height: 16px;
+min-width: 16px; }
+
+
+/**
+ * GTK < 3.20
+ */
 /***************
  * Base States *
  ***************/
@@ -98,7 +178,8 @@ GtkLabel:insensitive {
     background-color: transparent;
 }
 .button,
-.button:selected{
+.button:selected,
+combobox button.combo{
     padding: 3px;
     color: @theme_text_color;
 	border: solid;
@@ -109,7 +190,8 @@ GtkLabel:insensitive {
 	background-color: transparent;
 }
 .button:active,
-.button:hover{
+.button:hover,
+combobox button.combo:hover{
     /*transition: 50ms ease-in-out;   */
 	border: solid;
     background-image: url("darkelements/button-hover.png");
@@ -118,7 +200,8 @@ GtkLabel:insensitive {
 	background-size: 100% 100%;
 }
 
-.button:insensitive {
+.button:insensitive,
+combobox button.combo:insensitive {
 	border: solid;
     background-image: url("darkelements/column-header.png");
     border-image: url("darkelements/button-normal-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
@@ -609,7 +692,7 @@ border: solid;
 /**************
  * Scrollbars *
  **************/
-
+scrollbar,
 .scrollbar {
     background-image: none;
     border-style: solid;
@@ -629,22 +712,27 @@ border: solid;
 
 }
 /*vertical*/
+scrollbar.trough.vertical,
 .scrollbar.trough.vertical { 
     border-image: url("darkelements/scrollbars/trough-scrollbar-vert.png") 0 16 0 0 / 0 16px 0 0 stretch stretch;
     border-width: 0 16px 0 0;
     padding:0;
     background-color:#000000;
 }
+scrollbar.trough.vertical:insensitive
 .scrollbar.trough.vertical:insensitive {
     background-color: @theme_bg_color;
     padding:0;
 }
-
+scrollbar.slider.vertical,
+scrollbar.slider.vertical:insensitive,
 .scrollbar.slider.vertical,
 .scrollbar.slider.vertical:insensitive{
     border-image: url("darkelements/scrollbars/slider-vert.png") 2 8 2 8 / 2px 8px 2px 8px round stretch;
     border-width: 2px 8px;
 }
+scrollbar.slider.vertical:prelight,
+scrollbar.slider.vertical:prelight:active,
 .scrollbar.slider.vertical:prelight,
 .scrollbar.slider.vertical:prelight:active{
     border-image: url("darkelements/scrollbars/slider-vert-active.png") 2 8 2 8 / 2px 8px 2px 8px round stretch;
@@ -652,6 +740,7 @@ border: solid;
 }
 
 /* buttons up/down*/
+scrollbar.button.vertical,
 .scrollbar.button.vertical {
 	border: 1px solid;
     background-image: url("darkelements/scrollbars/stepper.png") ;
@@ -660,6 +749,7 @@ border: solid;
 	background-size: 100% 100%;
 	color: #ffffff;
 }
+scrollbar.button.vertical:nth-child(last),
 .scrollbar.button.vertical:nth-child(last) {
 	border: 1px solid;
     background-image: url("darkelements/scrollbars/stepper.png") ;
@@ -668,6 +758,7 @@ border: solid;
 	background-size: 100% 100%;
 	color: #ffffff;
 }
+scrollbar.button.vertical:prelight,
 .scrollbar.button.vertical:prelight {
 	border: 1px solid;
     background-image: url("darkelements/scrollbars/stepper-prelight.png") ;
@@ -676,7 +767,7 @@ border: solid;
 	background-size: 100% 100%;
 	color: #ffffff;
 }
-
+scrollbar.button.vertical:prelight:active,
 .scrollbar.button.vertical:prelight:active {
 	border: 1px solid;
     background-image: url("darkelements/scrollbars/stepper-prelight.png") ;
@@ -685,6 +776,7 @@ border: solid;
 	background-size: 100% 100%;
 	color: #ffffff;
 }
+scrollbar.button.vertical:prelight:nth-child(first) ,
 .scrollbar.button.vertical:prelight:nth-child(first)  {
 	border: 1px solid;
     background-image: url("darkelements/scrollbars/stepper-prelight.png") ;
@@ -693,7 +785,7 @@ border: solid;
 	background-size: 100% 100%;
 	color: #ffffff;
 }
-
+scrollbar.button.vertical:prelight:active:nth-child(first),
 .scrollbar.button.vertical:prelight:active:nth-child(first)  {
 	border: 1px solid;
     background-image: url("darkelements/scrollbars/stepper-prelight.png") ;
@@ -702,7 +794,7 @@ border: solid;
 	background-size: 100% 100%;
 	color: #ffffff;
 }
-
+scrollbar.button.vertical:insensitive,
 .scrollbar.button.vertical:insensitive {
 	border: 1px solid;
     background-image: url("darkelements/scrollbars/stepper.png") ;
@@ -802,6 +894,8 @@ border: solid;
  * Menus *
  *********/
 /* combobox menus */
+menu,
+.menu,
 GtkTreeMenu.menu {
     background-image: url("darkelements/menu-bg.png"); 
     border-image: url("darkelements/menu-border.png") 5 5 5 23 / 5px 5px 5px 23px stretch stretch; 
@@ -813,6 +907,8 @@ GtkTreeMenu.menu {
 	margin:10px;
 }
 
+menu .menuitem,
+menu .menuitem *,
 GtkTreeMenu .menuitem, 
 GtkTreeMenu .menuitem * {
     color: @theme_text_color;
@@ -823,6 +919,8 @@ background-color: transparent;
 	
 }
 
+menu .menuitem:prelight,
+menu .menuitem:prelight *,
 GtkTreeMenu .menuitem:prelight, 
 GtkTreeMenu .menuitem:prelight * {
     color: @theme_text_color;
@@ -834,7 +932,7 @@ GtkTreeMenu .menuitem:prelight * {
     padding: 0;
 }
 
-
+menu,
 .menu {
     background-image: url("darkelements/menu-bg.png"); 
 	border: solid;
@@ -843,11 +941,13 @@ GtkTreeMenu .menuitem:prelight * {
     color: @menu_fg_color;
 	background-size: 100% 100%; 
 }
+menu .menuite,
 .menu.menuitem {
 /* test */
     padding: 1px 4px 0 2px;
     
 }
+menu .button,
 .menu.button { 
     color: @internal_element_color;
 	border: solid;
@@ -856,7 +956,7 @@ GtkTreeMenu .menuitem:prelight * {
     border-width:2px;
 	background-size: 100% 100%;
 }
-
+menu.button:hover,
 .menu.button:hover {
     background-color: @theme_base_color;
 	border: solid;
@@ -866,7 +966,7 @@ GtkTreeMenu .menuitem:prelight * {
     border-width:2px;
 	background-size: 100% 100%;
 }
-
+menu.button:insensitive,
 .menu.button:insensitive {
     background-color: @theme_base_color;
     color: lighter(@internal_element_color);
@@ -877,6 +977,7 @@ GtkTreeMenu .menuitem:prelight * {
 }
 
 /* this controls the general appearance of the menubar */
+menubar,
 .menubar {
     background-image: url("darkelements/menubar.png");
     border-style: solid;
@@ -898,7 +999,7 @@ GtkMenu {
 	-GtkWidget-wide-seperators: 1;
 	border: 1px solid #ff0000; /* if you see this red you did not override it */
 }
-
+menubar > menuitem,
 .menubar > .menuitem {
 	/*engine: adwaita;*/
     -GtkArrow-shadow-style:none;
@@ -907,7 +1008,7 @@ GtkMenu {
 	padding: 0 4px 0 4px;
 	
 }
-
+menubar > menuitem:prelight
 .menubar > .menuitem:prelight {
     background-image: url("darkelements/menubar-item.png");
 	border: solid;	
@@ -917,9 +1018,11 @@ GtkMenu {
 	padding: 0 4px 0 4px;
 
 }
+menuitem,
 .menuitem{
 	padding: 1px 4px 0 2px;
 }
+menuitem:prelight,
 .menuitem:prelight {
     border: solid;
     background-image: url("darkelements/menubar-item-active.png");
@@ -933,11 +1036,12 @@ GtkMenu {
 /**
  * Menu bar root tree items (Open, Save, Save AS)
  */
+menubar menuitem menuitem,
 .menubar .menuitem .menuitem{
 	padding: 1px 4px 0 2px;
 		background-color: transparent;
 }
-
+menubar menuitem menuitem:prelight
 .menubar .menuitem .menuitem:prelight {
     border: solid;
     background-image: url("darkelements/menubar-item-active.png");
@@ -949,11 +1053,12 @@ GtkMenu {
     background-color: transparent;
 }
 /* Submenu of Submenu*/
-
+menuitem,
 .menuitem{
 	background-color: transparent;
 	padding: 1px 4px 0 2px;
 }
+menuitem:prelight,
 .menuitem:prelight { 
     border: solid;
     background-image: url("darkelements/menubar-item-active.png");
@@ -977,6 +1082,7 @@ GtkMenu {
 .menuitem .accelerator:active {
     color: @menu_fg_color;
 }
+menuitem separator,
 .menuitem .separator {
 	-GtkWidget-wide-separators: true;
 	-GtkWidget-separator-height: 2px;
@@ -985,6 +1091,10 @@ GtkMenu {
 	border-width:  0 0 2px 0;
 }
 
+separator,
+separator:hover,
+separator:backdrop,
+separator:hover:backdrop,
 .separator,
 .separator:hover,
 .separator:backdrop,
@@ -996,7 +1106,10 @@ GtkMenu {
 	border-width:  0 0 2px 0;
    
 }
-
+separator.horizontal,
+separator.horizontal:hover,
+separator.horizontal:backdrop,
+separator.horizontal:hover:backdrop,
 .separator.horizontal,
 .separator.horizontal:hover,
 .separator.horizontal:backdrop,
