@@ -1308,7 +1308,7 @@ menuitem separator,
     border-image: url("darkelements/line-h.png") 0 0 2 0  stretch ;
 	border-width:  0 0 2px 0;
 }
-
+/*
 separator,
 separator:hover,
 separator:backdrop,
@@ -1322,7 +1322,7 @@ separator:hover:backdrop,
     border-image: url("darkelements/line-h.png") 0 0 2 0  stretch ;
 	border-width:  0 0 2px 0;
    
-}
+} */
 separator.horizontal,
 separator.horizontal:hover,
 separator.horizontal:backdrop,
@@ -1331,7 +1331,7 @@ separator.horizontal:hover:backdrop,
 .separator.horizontal:hover,
 .separator.horizontal:backdrop,
 .separator.horizontal:hover:backdrop {
-border:solid;
+    border:solid;
     background-image: url("darkelements/line-h.png");
 	background-size: 100% 100%;
     border-image: url("darkelements/line-h.png") 2 0 0 0 / 2px 0 0 0 stretch ;
@@ -2753,6 +2753,8 @@ menu separator,
 menuitem separator {
 	border-image: url("darkelements/line-h.png") 0 0 2 0  stretch ;
 	border-width:  0 0 2px 0;
+    color: transparent;
+    background-color: transparent;
 }
 
 /* style classes are for firefox */
