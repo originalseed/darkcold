@@ -4009,7 +4009,7 @@ popover.background {
   -gtk-icon-shadow: none;
 }
 
-.popover {
+popover {
   background-clip: initial;
   margin: 10px;
   padding: 2px;
@@ -4167,6 +4167,11 @@ modelbutton.flat:hover,
 modelbutton.flat:selected {
     color: @theme_selected_fg_color;
 }
+
+modelbutton:hover {
+	background-color: @selected_bg_color;
+}
+
 
 popover separator {
 	border-image: url("darkelements/line-h.png") 0 0 2 0  stretch ;
