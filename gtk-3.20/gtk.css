@@ -1,6 +1,7 @@
 /**
  * DarkCold GTK Theme
  * @author originalseed
+ * @since 2018-06-01
  * 
  * For dev
  * sudo apt-get install gtk-3-examples
@@ -1072,7 +1073,8 @@ scrolledwindow viewport.frame {
  * Buttons *
  ***********/
 
-button {
+button ,
+popover.background button {
     padding: 3px;
     color: @theme_text_color;
 	border: solid;
@@ -1085,7 +1087,8 @@ button {
 
 button:disabled,
 combobox button.combo:disabled,
-toolbar combobox button.combo:disabled {
+toolbar combobox button.combo:disabled,
+popover.background button:disabled {
 border: solid;
     background-image: url("darkelements/column-header.png");
     border-image: url("darkelements/button-normal-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
@@ -1248,11 +1251,11 @@ button {
 	background-color: transparent;
 }
 
-/* We want anything inside the buttons to use their background */
+/* We want anything inside the buttons to use their background
 button * {
     background-color: transparent;
 }
-
+*/
 /* We may want a background for focused buttons, but in the meantime let's remove it too */
 GtkMenuToolButton *,
 toolbar.primary-toolbar button,
@@ -1272,7 +1275,8 @@ toolbar.primary-toolbar button:checked,
 toolbar.inline-toolbar button:checked,
 button:checked,
 button:checked:focus,
-button:focus {
+button:focus,
+popover.background button:focus {
     padding: 3px;
     color: @theme_text_color;
 	border: solid;
@@ -1713,7 +1717,8 @@ toolbar .raised button:hover,
 toolbar combobox button.combo:hover,
 toolbar.primary-toolbar button:hover,
 toolbar.primary-toolbar combobox button.combo:hover,
-colorchooser #add-color-button:hover {
+colorchooser #add-color-button:hover,
+popover.background button:hover {
 	border: solid;
     background-image: url("darkelements/button-hover.png");
     border-image: url("darkelements/button-hover-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
@@ -4001,25 +4006,18 @@ popover.background {
   background-clip: initial;
   margin: 10px;
   padding: 2px;
-  border: 1px solid darker(@theme_base_color);
-  border-radius: 3px;
+  border: 1px solid #3D3D3D;
+  border-radius: 0;
   background-color: @theme_bg_color;
   box-shadow: 0 1px 5px #000000;
   text-shadow: none;
   -gtk-icon-shadow: none;
+}
+popover.background separator {
+    margin: 3px; 
 }
 
-popover {
-  background-clip: initial;
-  margin: 10px;
-  padding: 2px;
-  border: 1px solid darker(@theme_base_color);
-  border-radius: 3px;
-  background-color: @theme_bg_color;
-  box-shadow: 0 1px 5px #000000;
-  text-shadow: none;
-  -gtk-icon-shadow: none;
-}
+
 .popover > .list, 
 .popover > .view,
 .popover > .toolbar .popover.osd > .toolbar, 
