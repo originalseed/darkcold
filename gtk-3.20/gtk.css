@@ -2455,7 +2455,7 @@ scrollbar.vertical .slider:hover {
 
 scrollbar.horizontal slider,
 scrollbar.horizontal .slider {
-    min-height: 16px;
+    
     border: solid;
  	border-image: url("darkelements/scrollbars/slider-horiz.png") 8 2 8 2 / 8px 2px 8px 2px stretch stretch;
     border-width: 8px 2px;
