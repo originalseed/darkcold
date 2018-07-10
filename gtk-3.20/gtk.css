@@ -2515,7 +2515,8 @@ treemenu menuitem {
 }
 
 menu,
-.menu {
+.menu, 
+.context-menu {
     background-image: url("darkelements/menu-bg.png"); 
 	border: solid;
     border-image: url("darkelements/menu-border.png") 5 5 5 23 / 5px 5px 5px 23px stretch stretch; 
@@ -3906,13 +3907,9 @@ headerbar {
     padding-left: 5px;
     padding-right: 5px;
 	border-radius: 0;
+	min-height: 40px;
 }
 
-headerbar,
-.titlebar {
-   border-color: shade(@border_color, 1.30);
-    padding: 5px 4px 4px 4px;
-}
 
 /* fix for gedit, .titlebar does not match headerbar selector */
 .background.csd > paned.horizontal.titlebar,
@@ -3959,6 +3956,10 @@ decoration:backdrop {
 /*    box-shadow: 0 0 0 1px shade(@wm_border,1.1), 0 2px 5px 1px*/
     box-shadow: none;
 }
+decoration {
+	border-radius: 0;
+  	border-width: 0;
+}
 
 .tiled decoration {
     border-radius: 0;
@@ -3982,9 +3983,11 @@ decoration:backdrop {
     box-shadow: none;
 }
 
+
 messagedialog.csd decoration {
-    border-radius: 7px;
+    border-radius: 0;
     box-shadow: 0 1px 5px @wm_shadow;
+	background-color: @theme_bg_color;
 }
 
 /**************
