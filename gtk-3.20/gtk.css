@@ -3893,9 +3893,9 @@ headerbar {
 }
 
 /* Close button style */
-.titlebar button,
-button.titlebutton,
-headerbar button,
+.titlebar button.close,
+.titlebar button.maximize,
+.titlebar button.minimize,
 headerbar button.titlebutton{
     border-radius: 0; /* Optional: Rounded corners */
     max-height: 24px;
@@ -3913,7 +3913,7 @@ headerbar button.titlebutton{
     margin-left: 0;
 }
 
-
+.titlebar button.close,
 headerbar > button.titlebutton.close {  
     background-image: url("darkelements/titlebar/buttons/button-close-focused.png");
     border-width:0;
@@ -3921,35 +3921,41 @@ headerbar > button.titlebutton.close {
 }
 
 /* Close button hover style */
+.titlebar button.close:hover,
 headerbar > button.titlebutton.close:hover {
     background-image: url("darkelements/titlebar/buttons/button-close-focused-active.png");
     border-width:0;
     background-size: 100% 100%; 
 }
+.titlebar button.close:active,
 headerbar > button.titlebutton.close:active {
     background-image: url("darkelements/titlebar/buttons/button-close-pressed.png");
     border-width:0;
     background-size: 100% 100%; 
 }
 
+.titlebar button.maximize,
 headerbar > button.titlebutton.maximize {
     background-image: url("darkelements/titlebar/buttons/button-maximize-focused.png");
     border-width:0;
     background-size: 100% 100%; 
 }
 
+.titlebar button.maximize:hover,
 headerbar > button.titlebutton.maximize:hover {
     background-image: url("darkelements/titlebar/buttons/button-maximize-focused-active.png");
     border-width:0;
     background-size: 100% 100%; 
 }
 
+.titlebar button.maximize:active,
 headerbar > button.titlebutton.maximize:active {
     background-image: url("darkelements/titlebar/buttons/button-maximize-pressed.png");
     border-width:0;
     background-size: 100% 100%; 
 }
 
+.titlebar button.minimize,
 headerbar > button.titlebutton.minimize {
     background-image: url("darkelements/titlebar/buttons/button-minimize-focused.png");
     border-width:0;
@@ -3960,6 +3966,7 @@ headerbar > button.titlebutton.minimize {
     min-width: 34px;
 }
 
+.titlebar button.minimize:hover,
 headerbar > button.titlebutton.minimize:hover {
     background-image: url("darkelements/titlebar/buttons/button-minimize-focused-active.png");
     border-width:0;
@@ -3970,6 +3977,7 @@ headerbar > button.titlebutton.minimize:hover {
     min-width: 34px;
 }
 
+.titlebar button.minimize:active,
 headerbar > button.titlebutton.minimize:active {
     background-image: url("darkelements/titlebar/buttons/button-minimize-pressed.png");
     border-width:0;
