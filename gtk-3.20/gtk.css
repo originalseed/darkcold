@@ -1,11 +1,6 @@
 /**
  * DarkCold GTK Theme
  * @author originalseed
- * @since 2018-06-01
- * 
- * For dev
- * sudo apt-get install gtk-3-examples
- * run gtk3-demo, gtk3-icon-browser, gtk3-widget-factory
  */
 
 @define-color insensitive_base_color @theme_bg_color;
@@ -19,13 +14,13 @@
 @define-color error_color #FC4138;
 @define-color success_color #73d216;
 @define-color placeholder_text_color #A8A8A8;
-@define-color link_color #e4a5a8;
+@define-color link_color #1327EC;
 @define-color content_view_bg @theme_bg_color;
 @define-color wm_title alpha(#cfdae7, 0.8);
 @define-color wm_unfocused_title alpha(#cfdae7, 0.5);
-@define-color wm_bg #2f343f;
-@define-color wm_bg_unfocused #323843;
-@define-color wm_highlight #363b48;
+@define-color wm_bg #0E0E0E;
+@define-color wm_bg_unfocused #0E0E0E;
+@define-color wm_highlight #0E0E0E;
 @define-color wm_shadow alpha(black, 0.35);
 @define-color wm_button_close_bg @theme_selected_bg_color;
 @define-color wm_button_close_hover_bg #d7787d;
@@ -41,9 +36,9 @@
 
 /* dark colormap */
 
-@define-color theme_base_color #060A0F;
+@define-color theme_base_color #0E0E0E;
 @define-color theme_text_color #6EBEFE;
-@define-color theme_bg_color #232323;
+@define-color theme_bg_color #252525;
 @define-color theme_fg_color @theme_text_color;
 @define-color selected_bg_color #0D377C;
 @define-color selected_fg_color #ffffff;
@@ -55,14 +50,13 @@
 @define-color menu_combobox_border @theme_selected_bg_color;
 @define-color menu_separator mix (@theme_bg_color, @menu_bg_color, 0.90);
 
-@define-color theme_tooltip_bg_color #000000;
+@define-color theme_tooltip_bg_color #0b0b0d;
 @define-color theme_tooltip_fg_color #eeeeee;
-@define-color notebook_bg_color #232323;
+@define-color notebook_bg_color #252525;
 
 @define-color button_border #24282a;
 
 @define-color button_raised_linked_shadow alpha(#000000, 0.14);
-
 
 @define-color insensitive_bg_color alpha(#0b0b0d, 0.0);
 @define-color insensitive_fg_color alpha(#717171, 0.50);
@@ -72,8 +66,7 @@
 
 @define-color notebook_border @button_border;
 
-
-@define-color switch_slider_color #111113;
+@define-color switch_slider_color #0E0E0E;
 @define-color switch_slider_border #a5b8cc;
 
 @define-color highlighted_border @button_border;
@@ -95,7 +88,6 @@
 
 @define-color frame_color #707070;
 
-
 @define-color toolbar_gradient_base #484848;
 @define-color toolbar_gradient_step1 #383838;
 @define-color toolbar_gradient_step2 #2F2F2F;
@@ -105,22 +97,17 @@
 @define-color toolbar_border_top #050505;
 @define-color toolbar_border_bottom #595959;
 
-@define-color primary_toolbar_entry_bg #060A0F;
+@define-color primary_toolbar_entry_bg #0E0E0E;
 @define-color primary_toolbar_entry_fg @theme_text_color;
-
-
 
 @define-color menu_controls_color #aaa8ac;
 
-
-@define-color trough_bg_color_a #252525;
+@define-color trough_bg_color_a #0E0E0E;
 @define-color trough_bg_color_b #41433f;
 
 
-
-
 /* FIXME: needs dark colors from here */
-@define-color link_color #4a90d9;
+@define-color link_color #1327EC;
 @define-color warning_color #f57900;
 @define-color error_color #cc0000;
 @define-color success_color #4e9a06;
@@ -146,7 +133,7 @@
 @define-color scale_progress_border #1864b2;
 @define-color scale_progress_border_b #3e90e5;
 
-@define-color wm_title_highlight #111111;
+@define-color wm_title_highlight #0E0E0E;
 @define-color wm_shadow #000000;
 
 @define-color osd_text_shadow #000000;
@@ -184,6 +171,8 @@ window {
    background-repeat: repeat-x;
    padding:0;
    background-color: @theme_bg_color;
+   border:0;
+   margin:0;
 }
 
 .background {
@@ -348,7 +337,7 @@ expander {
 statusbar label,
 statusbar frame {
     color: @theme_fg_color;
-    font-size: smaller;
+    font-size: 98%;
 }
 
 statusbar frame {
@@ -409,7 +398,7 @@ button separator {
 	background-size: 100% 100%;
     border-image: url("darkelements/line-v.png") 0 2 0 0 / 0 2px 0 0 stretch ;
     border-width:2px;
-    padding: 2px 3px;
+    padding: 2px 3px; 
 }
 /*********
  * Paned *
@@ -641,8 +630,6 @@ entry {
      * also applies to the progressbar.
      */
     padding: 4px 3px;
-    -GtkEntry-inner-border: 5px;
-    -GtkEntry-progress-border: 0;
     color: @theme_fg_color;
 }
 
@@ -663,8 +650,6 @@ entry:selected {
 entry:disabled {
     color: @insensitive_fg_color;
 }
-
-
 
 /*******************
  * Symbolic images *
@@ -852,7 +837,6 @@ treeview.view.trough:selected {
 /************
  * GtkScale *
  ************/
-
 
 scale.horizontal trough,
 scale.horizontal.marks-after trough {
@@ -1073,8 +1057,7 @@ scrolledwindow viewport.frame {
  * Buttons *
  ***********/
 
-button ,
-popover.background button {
+button {
     padding: 3px;
     color: @theme_text_color;
 	border: solid;
@@ -1087,8 +1070,7 @@ popover.background button {
 
 button:disabled,
 combobox button.combo:disabled,
-toolbar combobox button.combo:disabled,
-popover.background button:disabled {
+toolbar combobox button.combo:disabled {
 border: solid;
     background-image: url("darkelements/column-header.png");
     border-image: url("darkelements/button-normal-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
@@ -1111,7 +1093,7 @@ button.menuitem.menubar,
 .titlebar .linked.raised button:focus:hover,
 .titlebar .linked.raised button:focus:hover:active {
 
-    padding: 5px 5px 6px; /* larger values makes the button arrow smaller*/
+    /* padding: 5px 5px 6px; larger values makes the button arrow smaller*/
 }
 
 toolbar.inline-toolbar button,
@@ -1153,7 +1135,7 @@ button.flat {
     border-image: url("darkelements/button-normal-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
     border-width:2px;
 	background-size: 100% 100%;
-	background-color: transparent
+	background-color: transparent;
 }
 
 button.flat.hover {
@@ -1240,7 +1222,7 @@ border: solid;
 
 }
 
-button {
+button.not(headerbar) {
     padding: 3px;
     color: @theme_text_color;
 	border: solid;
@@ -1251,11 +1233,11 @@ button {
 	background-color: transparent;
 }
 
-/* We want anything inside the buttons to use their background
+/* We want anything inside the buttons to use their background */
 button * {
     background-color: transparent;
 }
-*/
+
 /* We may want a background for focused buttons, but in the meantime let's remove it too */
 GtkMenuToolButton *,
 toolbar.primary-toolbar button,
@@ -1275,8 +1257,7 @@ toolbar.primary-toolbar button:checked,
 toolbar.inline-toolbar button:checked,
 button:checked,
 button:checked:focus,
-button:focus,
-popover.background button:focus {
+button:focus {
     padding: 3px;
     color: @theme_text_color;
 	border: solid;
@@ -1284,7 +1265,7 @@ popover.background button:focus {
     border-image: url("darkelements/button-normal-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
     border-width:2px;
 	background-size: 100% 100%;
-	background-color: transparent
+	background-color: transparent;
 }
 
 button:disabled,
@@ -1389,7 +1370,6 @@ border:solid;
 .linked button:checked:hover:first-child,
 .linked button:checked:hover:active:first-child,
 .linked button:disabled:first-child {
-;
 }
 
 .linked entry:first-child {
@@ -1537,8 +1517,6 @@ spinbutton entry{
      * also applies to the progressbar.
      */
     padding: 4px 3px;
-    -GtkEntry-inner-border: 5px;
-    -GtkEntry-progress-border: 0;
     color: @entry_text_colo
 }
 
@@ -1644,7 +1622,6 @@ toolbar .raised button,
 toolbar combobox button.combo,
 toolbar combobox button.combo,
 toolbar.primary-toolbar combobox button.combo,
-.titlebar .titlebutton,
 colorchooser #add-color-button {
     color: @theme_text_color;
 	border: solid;
@@ -1680,8 +1657,7 @@ toolbar.primary-toolbar button:hover:active,
 toolbar.primary-toolbar button:focus:active,
 toolbar.primary-toolbar button:focus:hover:active,
 toolbar.inline-toolbar button:checked,
-toolbar.inline-toolbar button:hover:active,
-.titlebar .titlebutton:hover {
+toolbar.inline-toolbar button:hover:active {
 	border: solid;
     background-image: url("darkelements/button-hover.png");
     border-image: url("darkelements/button-hover-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
@@ -1717,8 +1693,7 @@ toolbar .raised button:hover,
 toolbar combobox button.combo:hover,
 toolbar.primary-toolbar button:hover,
 toolbar.primary-toolbar combobox button.combo:hover,
-colorchooser #add-color-button:hover,
-popover.background button:hover {
+colorchooser #add-color-button:hover {
 	border: solid;
     background-image: url("darkelements/button-hover.png");
     border-image: url("darkelements/button-hover-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
@@ -1824,7 +1799,7 @@ radio:checked:disabled{
 
 
 
-/* Stack switcher */
+/* Stack switcher 666
 
 stackswitcher > button > label,
 headerbar stackswitcher > button.titlebutton > label,
@@ -1833,6 +1808,7 @@ calendar.header stackswitcher > button.titlebutton > label {
 	padding-left: 6px;
 	padding-right: 6px;
 }
+*/
 
 /*****************
  * Notebooks and *
@@ -1853,7 +1829,7 @@ notebook.frame {
     border-style:solid;
     border-width:1px;
     border-radius: 0;
-    background-color:#1C1C1C;
+    background-color: #1C1C1C;
     padding:0;
   	background-size: 100% 100%;
 
@@ -1971,7 +1947,7 @@ paned.horizontal notebook header.top tab:checked {
 notebook header {
     background-color: #000000;
     background-clip: border-box;
-    border-color: #060A0F;
+    border-color: #0E0E0E;
     border-style: solid;
     border-bottom: 1px solid #3D3D3D;
 }
@@ -2310,6 +2286,7 @@ combobox .popup menu menuitem:hover cellview {
 /**************
  * Scrollbars *
  **************/
+
 scrollbar {
     border-color: @scrollbar_trough_border_color;
     -GtkScrollbar-has-backward-stepper: true;
@@ -2437,8 +2414,6 @@ scrollbar.vertical .button.down:hover:active {
 	color: transparent;
 }
 
-
-
 scrollbar.vertical slider,
 scrollbar.vertical .slider {
 	min-width: 16px;
@@ -2455,7 +2430,7 @@ scrollbar.vertical .slider:hover {
 
 scrollbar.horizontal slider,
 scrollbar.horizontal .slider {
-    
+    min-height: 16px;
     border: solid;
  	border-image: url("darkelements/scrollbars/slider-horiz.png") 8 2 8 2 / 8px 2px 8px 2px stretch stretch;
     border-width: 8px 2px;
@@ -2467,7 +2442,6 @@ scrollbar.horizontal .slider:hover {
     border-image: url("darkelements/scrollbars/slider-horiz-active.png") 8 2 8 2 / 8px 2px 8px 2px stretch round;
     border-width: 8px 2px;; 
 }
-
 
 /*********
  * Menus *
@@ -2515,8 +2489,7 @@ treemenu menuitem {
 }
 
 menu,
-.menu, 
-.context-menu {
+.menu {
     background-image: url("darkelements/menu-bg.png"); 
 	border: solid;
     border-image: url("darkelements/menu-border.png") 5 5 5 23 / 5px 5px 5px 23px stretch stretch; 
@@ -2560,9 +2533,6 @@ menuitem button.flat:hover {
 menuitem button.flat:focus {
     color: @theme_text_color;
 }
-
-
-
 
 
 menu menuitem:disabled,
@@ -2951,7 +2921,7 @@ toolbar.inline-toolb,
 .sidebar,
 .sidebar .view,
 placessidebar .view {
-    background-color: #060A0F;
+    background-color: #0E0E0E;
 }
 
 .sidebar .frame {
@@ -3037,7 +3007,6 @@ placesview stack frame,
     border-width: 0px;
     border-style: none;
 }
-
 
 /*******
  * OSD *
@@ -3456,6 +3425,7 @@ assistant .sidebar {
 /*************
  * GtkSwitch *
  *************/
+
 switch {
     min-width: 74px;
     min-height: 24px;
@@ -3586,7 +3556,7 @@ treeview {
 treeview.view.trough{
     border: solid;
     border-width: 1px;
-    border-color: #060A0F;
+    border-color: #0E0E0E;
 }
 
 treeview.dnd {
@@ -3645,7 +3615,6 @@ treeview header button:last-child:focus,
 treeview header button:last-child:checked,
 treeview header button:last-child:hover:active,
 treeview header button:last-child:active:focus {
-;
 }
 
 row,
@@ -3784,7 +3753,7 @@ calendar.view {
 }
 
 calendar.header {
-	background-color:#252525;
+	background-color: #0E0E0E;
 }
 
 calendar button{
@@ -3895,21 +3864,147 @@ infobar:last-child,
  * Header bar *
  **************/
 
-/************
- * Titlebar *
- ************/
-headerbar {
-	/* kriss: we need graphics for this, its the window header for gtk3 apps without metacity */
-	background-color: #000000;
-	background-size: 100% 100%;
-	border: solid;
-    background-image: url("darkelements/tab-top.png");
-    padding-left: 5px;
-    padding-right: 5px;
-	border-radius: 0;
-	min-height: 40px;
+headerbar:backdrop {
+    /* kriss: we need graphics for this, its the window header for gtk3 apps without metacity */
+    background-color: #232323;
+    background-size: 100% 100%;
+    background-image: url("darkelements/titlebar/titlebar-mid-unfocused.png");
+    padding-top: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 0;
+    border-style: solid;    
+    border-image: url("darkelements/titlebar/titlebar-border-unfocused.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
 }
 
+
+
+headerbar {
+    /* kriss: we need graphics for this, its the window header for gtk3 apps without metacity */
+    background-color: #232323;
+    background-size: 100% 100%;
+    background-image: url("darkelements/titlebar/titlebar-mid-focused.png");
+    padding-top: 2px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 0;
+    border-style: solid;    
+    border-image: url("darkelements/titlebar/titlebar-border-focused.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+}
+
+/* Close button style */
+.titlebar button.close,
+.titlebar button.maximize,
+.titlebar button.minimize,
+headerbar button.titlebutton{
+    border-radius: 0; /* Optional: Rounded corners */
+    max-height: 24px;
+    max-width: 35px;
+    min-height: 24px;
+    min-width: 35px;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    color: transparent;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0; 
+    margin-left: 0;
+}
+
+.titlebar button.close,
+headerbar > button.titlebutton.close {  
+    background-image: url("darkelements/titlebar/buttons/button-close-focused.png");
+    border-width:0;
+    background-size: 100% 100%; 
+}
+
+/* Close button hover style */
+.titlebar button.close:hover,
+headerbar > button.titlebutton.close:hover {
+    background-image: url("darkelements/titlebar/buttons/button-close-focused-active.png");
+    border-width:0;
+    background-size: 100% 100%; 
+}
+.titlebar button.close:active,
+headerbar > button.titlebutton.close:active {
+    background-image: url("darkelements/titlebar/buttons/button-close-pressed.png");
+    border-width:0;
+    background-size: 100% 100%; 
+}
+
+.titlebar button.maximize,
+headerbar > button.titlebutton.maximize {
+    background-image: url("darkelements/titlebar/buttons/button-maximize-focused.png");
+    border-width:0;
+    background-size: 100% 100%; 
+}
+
+.titlebar button.maximize:hover,
+headerbar > button.titlebutton.maximize:hover {
+    background-image: url("darkelements/titlebar/buttons/button-maximize-focused-active.png");
+    border-width:0;
+    background-size: 100% 100%; 
+}
+
+.titlebar button.maximize:active,
+headerbar > button.titlebutton.maximize:active {
+    background-image: url("darkelements/titlebar/buttons/button-maximize-pressed.png");
+    border-width:0;
+    background-size: 100% 100%; 
+}
+
+.titlebar button.minimize,
+headerbar > button.titlebutton.minimize {
+    background-image: url("darkelements/titlebar/buttons/button-minimize-focused.png");
+    border-width:0;
+    background-size: 100% 100%; 
+    max-height: 24px;
+    max-width: 34px;
+    min-height: 24px;
+    min-width: 34px;
+}
+
+.titlebar button.minimize:hover,
+headerbar > button.titlebutton.minimize:hover {
+    background-image: url("darkelements/titlebar/buttons/button-minimize-focused-active.png");
+    border-width:0;
+    background-size: 100% 100%; 
+    max-height: 24px;
+    max-width: 34px;
+    min-height: 24px;
+    min-width: 34px;
+}
+
+.titlebar button.minimize:active,
+headerbar > button.titlebutton.minimize:active {
+    background-image: url("darkelements/titlebar/buttons/button-minimize-pressed.png");
+    border-width:0;
+    background-size: 100% 100%; 
+    max-height: 24px;
+    max-width: 34px;
+    min-height: 24px;
+    min-width: 34px;
+}
+
+/*
+    padding: 3px;
+    color: @theme_text_color;
+    border: solid;
+    background-image: url("darkelements/button-normal.png");
+    border-image: url("darkelements/button-normal-border.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width:2px;
+    background-size: 100% 100%;
+    background-color: transparent;
+
+
+headerbar,
+.titlebar {
+   border-color: shade(@border_color, 1.30);
+    padding: 5px 4px 4px 4px;
+}
+*/
 
 /* fix for gedit, .titlebar does not match headerbar selector */
 .background.csd > paned.horizontal.titlebar,
@@ -3919,6 +4014,10 @@ headerbar {
     margin: -2px 0px -2px 0px;
     border-width: 0px;
 }
+
+/************
+ * Titlebar *
+ ************/
 
 .tiled .titlebar {
     border-radius: 0;
@@ -3933,14 +4032,21 @@ headerbar .title,
     font-weight: bold;
 }
 
-headerbar button.titlebutton,
-.titlebar button.titlebutton {
-
+/* Kriss: here is the border of the window .. maybe*/
+decoration {
+    border: 4px solid rgba(35, 35, 35, 1.0);
+    border-style: solid;    
+    border-image: url("darkelements/border-passive.png") 2 2 2 2 / 2px 2px 2px 2px stretch stretch;
+    border-width:4px;
+    border-color: @theme_bg_color;
+    background-color: @theme_bg_color;
 }
 
 /* workaround to avoid unwanted black frames if switching compositor on/off */
 .background decoration  {
     box-shadow: none;
+    background-color: @theme_bg_color;
+background: @theme_bg_color;
 }
 
 .background.csd decoration {
@@ -3949,16 +4055,14 @@ headerbar button.titlebutton,
     border-style: solid;
     box-shadow: 0 0 0 1px @wm_border, 0 2px 8px 3px @wm_shadow;
     margin: 10px;
+    background-color: @theme_bg_color;
+    background: @theme_bg_color;
 }
 
 /* workaround to avoid unwanted black frames if switching compositor on/off */
 decoration:backdrop {
 /*    box-shadow: 0 0 0 1px shade(@wm_border,1.1), 0 2px 5px 1px*/
     box-shadow: none;
-}
-decoration {
-	border-radius: 0;
-  	border-width: 0;
 }
 
 .tiled decoration {
@@ -3983,11 +4087,9 @@ decoration {
     box-shadow: none;
 }
 
-
 messagedialog.csd decoration {
-    border-radius: 0;
+    border-radius: 7px;
     box-shadow: 0 1px 5px @wm_shadow;
-	background-color: @theme_bg_color;
 }
 
 /**************
@@ -4009,18 +4111,25 @@ popover.background {
   background-clip: initial;
   margin: 10px;
   padding: 2px;
-  border: 1px solid #3D3D3D;
-  border-radius: 0;
+  border: 1px solid darker(@theme_base_color);
+  border-radius: 3px;
   background-color: @theme_bg_color;
   box-shadow: 0 1px 5px #000000;
   text-shadow: none;
   -gtk-icon-shadow: none;
 }
-popover.background separator {
-    margin: 3px; 
+
+.popover {
+  background-clip: initial;
+  margin: 10px;
+  padding: 2px;
+  border: 1px solid darker(@theme_base_color);
+  border-radius: 3px;
+  background-color: @theme_bg_color;
+  box-shadow: 0 1px 5px #000000;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
 }
-
-
 .popover > .list, 
 .popover > .view,
 .popover > .toolbar .popover.osd > .toolbar, 
@@ -4072,7 +4181,6 @@ popover.background separator {
 .popover .list {
   background-color: @theme_base_color; 
 }
-
 
 popover > list,
 popover > .view,
@@ -4168,11 +4276,6 @@ modelbutton.flat:hover,
 modelbutton.flat:selected {
     color: @theme_selected_fg_color;
 }
-
-modelbutton:hover {
-	background-color: @selected_bg_color;
-}
-
 
 popover separator {
 	border-image: url("darkelements/line-h.png") 0 0 2 0  stretch ;
@@ -4368,4 +4471,3 @@ printdialog.background paper {
 dialog.background dialog-vbox.vertical .vertical {
     background: transparent;
 }
-
