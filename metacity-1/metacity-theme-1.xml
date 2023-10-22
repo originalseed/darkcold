@@ -141,6 +141,22 @@
   <image filename="button-maximize-pressed.png" x="0"  y="0" width="width" height="height"/>
 </draw_ops>
 
+<draw_ops name="button-unmaximize-focused">
+  <image filename="button-unmaximize-focused.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+
+<draw_ops name="button-unmaximize-focused-active">
+  <image filename="button-unmaximize-focused-active.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+
+<draw_ops name="button-unmaximize-unfocused">
+  <image filename="button-unmaximize-unfocused.png" x="0" y="0" width="width" height="height"/>
+</draw_ops>
+
+<draw_ops name="button-maximize-pressed">
+  <image filename="button-unmaximize-pressed.png" x="0"  y="0" width="width" height="height"/>
+</draw_ops>
+
 <draw_ops name="button-minimize-focused">
   <image filename="button-minimize-focused.png" x="0" y="0" width="width" height="height"/>
 </draw_ops>
@@ -235,9 +251,9 @@
   <button function="minimize" state="prelight" draw_ops="button-minimize-focused-active"/>
   <button function="minimize" state="pressed" draw_ops="button-minimize-pressed"/>
 
-  <button function="maximize" state="normal" draw_ops="button-maximize-focused"/>
-  <button function="maximize" state="prelight" draw_ops="button-maximize-focused-active"/>
-  <button function="maximize" state="pressed" draw_ops="button-maximize-pressed"/>
+  <button function="maximize" state="normal" draw_ops="button-unmaximize-focused"/>
+  <button function="maximize" state="prelight" draw_ops="button-unmaximize-focused-active"/>
+  <button function="maximize" state="pressed" draw_ops="button-unmaximize-pressed"/>
 
   <button function="menu" state="normal" draw_ops="button-menu-focused"/>
   <button function="menu" state="prelight" draw_ops="button-menu-focused-active"/>
@@ -257,9 +273,9 @@
   <button function="minimize" state="prelight" draw_ops="button-minimize-focused"/>
   <button function="minimize" state="pressed" draw_ops="button-minimize-pressed"/>
 
-  <button function="maximize" state="normal" draw_ops="button-maximize-unfocused"/>
-  <button function="maximize" state="prelight" draw_ops="button-maximize-focused"/>
-  <button function="maximize" state="pressed" draw_ops="button-maximize-pressed"/>
+  <button function="maximize" state="normal" draw_ops="button-unmaximize-unfocused"/>
+  <button function="maximize" state="prelight" draw_ops="button-unmaximize-focused"/>
+  <button function="maximize" state="pressed" draw_ops="button-unmaximize-pressed"/>
 
   <button function="menu" state="normal" draw_ops="button-menu-unfocused"/>
   <button function="menu" state="prelight" draw_ops="button-menu-focused"/>
@@ -295,6 +311,6 @@
 
 <menu_icon function="close" state="normal" draw_ops="button-close-focused"/>
 <menu_icon function="maximize" state="normal" draw_ops="button-maximize-focused"/>
-<menu_icon function="unmaximize" state="normal" draw_ops="button-maximize-focused"/>
+<menu_icon function="unmaximize" state="normal" draw_ops="button-unmaximize-focused"/>
 <menu_icon function="minimize" state="normal" draw_ops="button-minimize-focused"/>
 </metacity_theme>
